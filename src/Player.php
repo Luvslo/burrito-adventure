@@ -3,15 +3,13 @@
     class Player
     {
         private $name;
-        private $inventory_id;
         private $stage_id;
         private $game_id;
         private $id;
 
-        function __construct($name, $inventory_id, $stage_id, $game_id, $id = null)
+        function __construct($name, $stage_id, $game_id, $id = null)
         {
             $this->name = $name;
-            $this->inventory_id = $inventory_id;
             $this->stage_id = $stage_id;
             $this->game_id = $game_id;
             $this->id = $id;
@@ -20,12 +18,6 @@
         function getName()
         {
             return $this->name;
-        }
-
-        function getInventoryId()
-        {
-            $GLOBALS['DB']->query("SELECT * FROM inventory WHERE player_id = {$this->getId()};");
-            return $this->inventory_id;
         }
 
         function getStageId()
@@ -48,11 +40,6 @@
             $this->name = $name;
         }
 
-        function setInventoryId($inventory_id)
-        {
-            $this->inventory_id = $inventory_id;
-        }
-
         function setStageId($stage_id)
         {
             $this->stage_id = $stage_id;
@@ -60,7 +47,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO player (name, inventory_id, stage_id, game_id) VALUES ('{$this->getName()}', '{$this->getInventoryId()}', {$this->getStageId()}, {$this->getGameId()});");
+            $GLOBALS['DB']->exec("INSERT INTO player (name, stage_id, game_id) VALUES ('{$this->getName()}', {$this->getStageId()}, {$this->getGameId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -71,14 +58,18 @@
 
             foreach($returned_players as $player) {
                 $name = $player['name'];
-                $inventory_id = $player['inventory_id'];
                 $stage_id = $player['stage_id'];
                 $game_id = $player['game_id'];
                 $id = $player['id'];
-                $new_player = new Player($name, $inventory_id, $stage_id, $game_id, $id);
+                $new_player = new Player($name, $stage_id, $game_id, $id);
                 array_push($players, $new_player);
             }
             return $players;
+        }
+
+        function getInventory()
+        {
+            $GLOBALS['DB']->query("SELECT * FROM inventory WHERE in_inventory = 1;");
         }
 
         static function deleteAll()
