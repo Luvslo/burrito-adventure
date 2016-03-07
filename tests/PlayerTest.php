@@ -14,40 +14,75 @@
 
     class PlayerTest extends PHPUnit_Framework_TestCase
     {
-        // protected function tearDown()
-        // {
-        //     Player::deleteAll();
-        // }
+        protected function tearDown()
+        {
+            Player::deleteAll();
+        }
 
         function test_getInfo()
         {
             // Arrange
             $name = "Joe";
-            $money = 0;
-            $inventory = ['frozen_hunk'];
-            $current_stage = 12;
-            $has_burrito = 0;
+            $inventory_id = ['frozen_hunk'];
+            $stage_id = 12;
             $game_id = 1;
             $id = 1;
-            $test_player = new Player($name, $money, $inventory, $current_stage, $has_burrito, $game_id, $id);
+            $test_player = new Player($name, $inventory_id, $stage_id, $game_id, $id);
 
             // Act
             $result1 = $test_player->getName();
-            $result2 = $test_player->getMoney();
-            $result3 = $test_player->getInventory();
-            $result4 = $test_player->getCurrentStage();
-            $result5 = $test_player->getHasBurrito();
+            $result3 = $test_player->getInventoryId();
+            $result4 = $test_player->getStageId();
             $result6 = $test_player->getGameId();
             $result7 = $test_player->getId();
 
             // Assert
             $this->assertEquals($name, $result1);
-            $this->assertEquals($money, $result2);
-            $this->assertEquals($inventory, $result3);
-            $this->assertEquals($current_stage, $result4);
-            $this->assertEquals(0, $result5);
+            $this->assertEquals($inventory_id, $result3);
+            $this->assertEquals($stage_id, $result4);
             $this->assertEquals(1, $result6);
             $this->assertEquals($id, $result7);
+        }
+
+        function test_save()
+        {
+            $name = "Joe";
+            $inventory_id = 1;
+            $stage_id = 12;
+            $game_id = 1;
+            $id = 1;
+            $test_player = new Player($name,$inventory_id, $stage_id,$game_id, $id);
+            $test_player->save();
+
+            //Act
+            $result = Player::getAll();
+
+            //Assert
+            $this->assertEquals([$test_player], $result);
+        }
+
+        function test_getAll()
+        {
+            $name = "Joe";
+            $inventory_id = 4;
+            $stage_id = 12;
+            $game_id = 1;
+            $id = 1;
+            $test_player = new Player($name, $inventory_id, $stage_id, $game_id, $id);
+            $test_player->save();
+
+            $name2 = "Mary";
+            $inventory_id2 = ['frozen_hunk', 'keys'];
+            $stage_id2 = 12;
+            $id2 = 2;
+            $test_player2 = new Player($name2, $inventory_id2, $stage_id2, $game_id, $id2);
+            $test_player2->save();
+
+            //Act
+            $result = Player::getAll();
+
+            //Assert
+            $this->assertEquals([$test_player, $test_player2], $result);
         }
     }
  ?>

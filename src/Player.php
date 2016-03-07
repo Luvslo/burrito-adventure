@@ -3,20 +3,16 @@
     class Player
     {
         private $name;
-        private $money;
-        private $inventory;
-        private $current_stage;
-        private $has_burrito;
+        private $inventory_id;
+        private $stage_id;
         private $game_id;
         private $id;
 
-        function __construct($name, $money = 0, $inventory, $current_stage, $has_burrito = 0, $game_id, $id = null)
+        function __construct($name, $inventory_id, $stage_id, $game_id, $id = null)
         {
             $this->name = $name;
-            $this->money = $money;
-            $this->inventory = $inventory;
-            $this->current_stage = $current_stage;
-            $this->has_burrito = $has_burrito;
+            $this->inventory_id = $inventory_id;
+            $this->stage_id = $stage_id;
             $this->game_id = $game_id;
             $this->id = $id;
         }
@@ -26,24 +22,15 @@
             return $this->name;
         }
 
-        function getMoney()
+        function getInventoryId()
         {
-            return $this->money;
+            $GLOBALS['DB']->query("SELECT * FROM inventory WHERE player_id = {$this->getId()};");
+            return $this->inventory_id;
         }
 
-        function getInventory()
+        function getStageId()
         {
-            return $this->inventory;
-        }
-
-        function getCurrentStage()
-        {
-            return $this->current_stage;
-        }
-
-        function getHasBurrito()
-        {
-            return $this->has_burrito;
+            return $this->stage_id;
         }
 
         function getGameId()
@@ -61,31 +48,44 @@
             $this->name = $name;
         }
 
-        function setMoney($money)
+        function setInventoryId($inventory_id)
         {
-            $this->money = $money;
+            $this->inventory_id = $inventory_id;
         }
 
-        function setInventory($inventory)
+        function setStageId($stage_id)
         {
-            $this->inventory = $inventory;
+            $this->stage_id = $stage_id;
         }
 
-        function setCurrentStage($current_stage)
+        function save()
         {
-            $this->current_stage = $current_stage;
+            $GLOBALS['DB']->exec("INSERT INTO player (name, inventory_id, stage_id, game_id) VALUES ('{$this->getName()}', '{$this->getInventoryId()}', {$this->getCurrentStage()}, {$this->getGameId()});");
+            $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        function setHasBurrito($has_burrito)
+        static function getAll()
         {
-            $this->has_burrito = $has_burrito;
+            $returned_players = $GLOBALS['DB']->query("SELECT * FROM player;");
+            $players = [];
+
+            foreach($returned_players as $player) {
+                $name = $player['name'];
+                $inventory_id = $player['inventory_id'];
+                $stage_id = $player['stage_id'];
+                $game_id = $player['game_id'];
+                $id = $player['id'];
+                $new_player = new Player($name, $inventory_id, $stage_id, $game_id, $id);
+                array_push($players, $new_player);
+            }
+            return $players;
         }
 
-        // function save()
-        // {
-        //     $GLOBALS['DB']->exec("INSERT INTO player (name, money, inventory, current_stage, has_burrito) VALUES ('{$this->getName()}', {$this->getMoney()}, )")
-        // }
-        //
+        static function deleteAll()
+        {
+            $GLOBAS['DB']->exec("DELETE FROM player;");
+        }
+
 
     }
 ?>

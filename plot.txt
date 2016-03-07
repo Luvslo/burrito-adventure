@@ -1,0 +1,33 @@
+1. You wake up.  You're hung over, famished,  and your room is filthy.  You get the sense that if you don't eat a burrito in the next hour, you will die.  WHAT DO?
+choice1 = CLEAN
+choice2 = GO TO KITCHEN
+
+if CLEAN => find $1 (money += 1)
+if KITCHEN => current_stage = KITCHEN
+
+2. KITCHEN
+description "You walk into the kitchen.  The sun is extremely bright.   You shield your hungover eyes.  Inside the kitchen you have a FRIDGE.  KEYS, PHONE, and SUNSCREEN are sitting on the counter.  You can enter the GARAGE or LEAVE the house.  WHAT DO?"
+get SUNSCREEN (push SUNSCREEN to INVENTORY)
+get KEYS (push KEYS to INVENTORY)
+(GARAGE => bike (NEED KEYS))
+(LEAVE => walk down the street)
+(FRIDGE => see FROZEN BURRITO ("You see a horrific sight.  An Amy's frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer.  It is now a lovely spectrum of green and black, and frozen completely solid.  You could probably hurt someone with this thing."))
+if take FROZEN BURRITO => inventory += burrito
+if EAT FROZEN_BURRITO => DEAD ("Against your better judgement, you toss the burrito in your microwave and choke the putrid goo-mass down.  You immediately start vomiting and don't stop.  YOU DEAD." exit(0))
+
+if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out expectantly. But you don't have enough money!  Your inventory contains {#inventory[0]}")
+    if USE BURRITO => ("You bludgeon the delivery man to death with your frozen burrito.  The cops immediately swarm the house.  You vaguely wonder if they were hiding in the bushes as they slap the cuffs on.  You go to prison forever.  There are no burritos in prison.  YOU DEAD.")
+    else (loop delivery man demanding money)
+
+DEAD function
+
+3. GARAGE
+description: "You walk into the garage, and see your BIKE. There's a door for the KITCHEN and a door OUTSIDE. WHAT DO?"
+if !has_key & RIDE BIKE => "Your bike is securely locked to the boiler.  That's probably bad for it, but you have no key."
+if has_key & RIDE BIKE => "You unlock your bike and take it outside"
+if OUTSIDE (LEAVE) => walk down the street
+
+4. RIDE BIKE->GO OUTSIDE
+description: "You walk outside.  It's beautiful!  The chirping birds and bright sunshine only worsen your pounding hangover headache.  You consider your burrito options...there's a supermarket nearby or a taco stand a few miles away. WHAT DO?"
+if SUPERMARKET =>
+if TACO_STAND =>
