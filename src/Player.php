@@ -60,7 +60,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO player (name, inventory_id, stage_id, game_id) VALUES ('{$this->getName()}', '{$this->getInventoryId()}', {$this->getCurrentStage()}, {$this->getGameId()});");
+            $GLOBALS['DB']->exec("INSERT INTO player (name, inventory_id, stage_id, game_id) VALUES ('{$this->getName()}', '{$this->getInventoryId()}', {$this->getStageId()}, {$this->getGameId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -83,7 +83,7 @@
 
         static function deleteAll()
         {
-            $GLOBAS['DB']->exec("DELETE FROM player;");
+            $GLOBALS['DB']->exec("DELETE FROM player;");
         }
 
 

@@ -23,7 +23,7 @@
         {
             // Arrange
             $name = "Joe";
-            $inventory_id = ['frozen_hunk'];
+            $inventory_id = 11;
             $stage_id = 12;
             $game_id = 1;
             $id = 1;
@@ -72,7 +72,7 @@
             $test_player->save();
 
             $name2 = "Mary";
-            $inventory_id2 = ['frozen_hunk', 'keys'];
+            $inventory_id2 = 12;
             $stage_id2 = 12;
             $id2 = 2;
             $test_player2 = new Player($name2, $inventory_id2, $stage_id2, $game_id, $id2);
