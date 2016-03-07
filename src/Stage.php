@@ -1,6 +1,6 @@
 <?php
 
-    class Room
+    class Stage
         {
 
 
