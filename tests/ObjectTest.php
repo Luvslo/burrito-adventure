@@ -23,21 +23,19 @@
         {
             // Arrange
             $name = "Frozen Burrito";
-            $location = "Freezer";
             $description = "This frozen burrito looks super questionable. It's probably been frozen for a long time, and is as hard as a rock. Is that mold I see?";
             $id = null;
             $game_id = 1;
+            $in_inventory = 0;
 
-            $test_object = new Object($name, $location, $description, $game_id, $id);
+            $test_object = new Object($name, $description, $game_id, $in_inventory, $id);
             // Act
             $result1 = $name;
-            $result2 = $location;
             $result3 = $description;
             $result4 = $id;
             $result5 = $game_id;
             // Assert
             $this->assertEquals($name, $result1);
-            $this->assertEquals($location, $result2);
             $this->assertEquals($description, $result3);
             $this->assertEquals($id, $result4);
             $this->assertEquals($game_id, $result5);
@@ -46,11 +44,12 @@
         function test_Save()
         {
             $name = "Frozen Burrito";
-            $location = "Freezer";
             $description = "This frozen burrito looks super questionable. It's probably been frozen for a long time, and is as hard as a rock. Is that mold I see?";
             $id = null;
             $game_id = 1;
-            $test_object = new Object($name, $location, $description, $game_id, $id);
+            $in_inventory = 0;
+
+            $test_object = new Object($name, $description, $game_id, $in_inventory, $id);
             $test_object->save();
 
             $result = Object::getAll();
@@ -61,20 +60,20 @@
         function test_getAll()
         {
             $name = "Frozen Burrito";
-            $location = "Freezer";
             $description = "This frozen burrito looks super questionable. It's probably been frozen for a long time, and is as hard as a rock. Is that mold I see?";
             $id = null;
             $game_id = 1;
+            $in_inventory = 0;
 
-            $test_object = new Object($name, $location, $description, $game_id, $id);
+            $test_object = new Object($name, $description, $game_id, $in_inventory, $id);
             $test_object->save();
 
             $name2 = "Cash money";
-            $location2 = "Under couch";
             $description2 = "This is money. It can be used in exchange for goods and services.";
             $game_id2 = 2;
+            $in_inventory2 = 0;
 
-            $test_object2 = new Object($name2, $location2, $description2, $game_id2, $id);
+            $test_object2 = new Object($name2, $description2, $game_id2, $in_inventory2, $id);
             $test_object2->save();
 
             $result = Object::getAll();

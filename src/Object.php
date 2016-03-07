@@ -3,16 +3,16 @@
     class Object
         {
             private $name;
-            private $location;
             private $description;
             private $game_id;
+            private $in_inventory;
             private $id;
 
-            function __construct($name, $location, $description, $game_id, $id = null) {
+            function __construct($name, $description, $game_id, $in_inventory = 0, $id = null) {
                 $this->name = $name;
-                $this->location = $location;
                 $this->description = $description;
                 $this->game_id = $game_id;
+                $this->in_inventory = $in_inventory;
                 $this->id = $id;
             }
 
@@ -24,16 +24,6 @@
             function setName($new_name)
             {
                 $this->name = $new_name;
-            }
-
-            function getLocation()
-            {
-                return $this->location;
-            }
-
-            function setLocation($new_location)
-            {
-                $this->location = $new_location;
             }
 
             function getDescription()
@@ -61,6 +51,16 @@
                 $this->game_id = $new_game_id;
             }
 
+            function getInInventory()
+            {
+                return $this->in_inventory;
+            }
+
+            function setInInventory($new_in_inventory)
+            {
+                $this->in_inventory = $new_in_inventory;
+            }
+
             function adjustPunctuation($input)
             {
                 $search = "/(\')/";
@@ -71,7 +71,7 @@
 
             function save()
             {
-                $GLOBALS['DB']->exec("INSERT INTO objects (name, location, description, game_id) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getLocation())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()});");
+                $GLOBALS['DB']->exec("INSERT INTO objects (name, description, game_id, in_inventory) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()});");
                 $this->id = $GLOBALS['DB']->lastInsertId();
             }
 
@@ -82,11 +82,11 @@
 
                 foreach($returned_objects as $object) {
                     $name = $object['name'];
-                    $location = $object['location'];
                     $description = $object['description'];
                     $game_id = $object['game_id'];
+                    $in_inventory = $object['in_inventory'];
                     $id = $object['id'];
-                    $new_object = new Object($name, $location, $description, $game_id, $id);
+                    $new_object = new Object($name, $description, $game_id, $in_inventory, $id);
                     array_push($objects, $new_object);
                 }
                 return $objects;
@@ -96,9 +96,6 @@
             {
                 $GLOBALS['DB']->exec("DELETE FROM objects;");
             }
-
-
-
 
         }
 ?>
