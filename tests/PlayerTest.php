@@ -27,8 +27,9 @@
             $inventory = ['frozen_hunk'];
             $current_stage = 12;
             $has_burrito = 0;
+            $game_id = 1;
             $id = 1;
-            $test_player = new Player($name, $money, $inventory, $current_stage, $has_burrito, $id);
+            $test_player = new Player($name, $money, $inventory, $current_stage, $has_burrito, $game_id, $id);
 
             // Act
             $result1 = $test_player->getName();
@@ -36,7 +37,8 @@
             $result3 = $test_player->getInventory();
             $result4 = $test_player->getCurrentStage();
             $result5 = $test_player->getHasBurrito();
-            $result6 = $test_player->getId();
+            $result6 = $test_player->getGameId();
+            $result7 = $test_player->getId();
 
             // Assert
             $this->assertEquals($name, $result1);
@@ -44,7 +46,8 @@
             $this->assertEquals($inventory, $result3);
             $this->assertEquals($current_stage, $result4);
             $this->assertEquals(0, $result5);
-            $this->assertEquals($id, $result6);
+            $this->assertEquals(1, $result6);
+            $this->assertEquals($id, $result7);
         }
     }
  ?>

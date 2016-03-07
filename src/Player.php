@@ -7,15 +7,17 @@
         private $inventory;
         private $current_stage;
         private $has_burrito;
+        private $game_id;
         private $id;
 
-        function __construct($name, $money = 0, $inventory, $current_stage, $has_burrito = 0, $id = null)
+        function __construct($name, $money = 0, $inventory, $current_stage, $has_burrito = 0, $game_id, $id = null)
         {
             $this->name = $name;
             $this->money = $money;
             $this->inventory = $inventory;
             $this->current_stage = $current_stage;
             $this->has_burrito = $has_burrito;
+            $this->game_id = $game_id;
             $this->id = $id;
         }
 
@@ -42,6 +44,11 @@
         function getHasBurrito()
         {
             return $this->has_burrito;
+        }
+
+        function getGameId()
+        {
+            return $this->game_id;
         }
 
         function getId()
@@ -74,6 +81,11 @@
             $this->has_burrito = $has_burrito;
         }
 
+        // function save()
+        // {
+        //     $GLOBALS['DB']->exec("INSERT INTO player (name, money, inventory, current_stage, has_burrito) VALUES ('{$this->getName()}', {$this->getMoney()}, )")
+        // }
+        //
 
     }
 ?>
