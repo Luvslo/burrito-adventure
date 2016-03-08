@@ -7,8 +7,8 @@ if KITCHEN => current_stage = KITCHEN
 
 2. KITCHEN
 description "You walk into the kitchen.  The sun is extremely bright.   You shield your hungover eyes.  Inside the kitchen you have a FRIDGE.  KEYS, PHONE, and SUNSCREEN are sitting on the counter.  You can enter the GARAGE or LEAVE the house.  WHAT DO?"
-get SUNSCREEN (push SUNSCREEN to INVENTORY)
-get KEYS (push KEYS to INVENTORY)
+get SUNSCREEN in_inventory to TRUE
+get KEYS in_inventory to TRUE
 get PHONE (can call delivery)
 (GARAGE => bike (NEED KEYS))
 (LEAVE => walk down the street)
@@ -74,4 +74,27 @@ Option1: Pick her lock
 Option2: Go back home and worry about Wanda later.
 
 12. INSIDE WANDA'S HOUSE
-description: "Wanda is passed out cold. She was at the party too. "
+description: "Wanda is passed out cold. She was at the party too! You see her PURSE on the table, as well a tiny but pointy CACTUS. You also that Wanda is holding AN ENTIRE BURRITO in her hand. She must've bought it last night but passed out before she could take a bite! WHAT DO?"
+option1: take burrito from Wanda
+option2: leave Wanda's house go home
+action1: loot Wanda's purse => money += 3
+action2: take CACTUS = > CACTUS in_inventory to TRUE
+
+13. TAKE WANDA'S BURRITO
+description: "You sneak over to Wanda's near-lifeless body. She's not clutching the burrito too hard. This should be easy. As you make a move for her burrito, WANDA'S EYES OPEN! You didn't notice in her other hand was a SHARP PAIR OF SCISSORS. Before Wanda can even identify you as her friend, she plunges the scissors into your neck. You repeatedly scream at Wanda 'WHY?!' before you bleed out with your severed jugular. YOU DEAD"
+
+14. ON THE WAY TO SUPERMARKET AND TACO BELL
+description: "You come across a homeless man asking for change. Do you stop and help him or keep on going?"
+option1: help him
+option2: don't help him
+
+15. HELP HIM
+description: "You give the man $1 from your wallet (money -=1). He thanks you graciously and says 'I'll remember this. I swear upon my life I shall repay you.'"
+send on to 17
+bum_help = true in inventory
+
+16. DON'T HELP HIM
+description: "The homeless man yells at you. You feel bad."
+
+17. ON THE CORNER OF SUPERMARKET AND TACO BELL
+description: ""
