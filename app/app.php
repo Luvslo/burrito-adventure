@@ -24,7 +24,6 @@
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig', array(
             'form' => true,
-
         ));
     });
 
@@ -39,7 +38,6 @@
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'message' => array(
-
             )
         ));
     });
@@ -86,7 +84,6 @@
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'message' => array(
-
             )
         ));
     });
@@ -96,6 +93,8 @@
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(102);
+        $sunscreen = Inventory::find(4);
+        $sunscreen->putInInventory('sunscreen');
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
