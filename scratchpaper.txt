@@ -48,3 +48,13 @@ $app->get("/stage/{stage_id}/{action_id}", function($stage_id, $action_id) use (
 
     ));
 });
+
+
+
+HOUSE THINGS: 100
+WALKING THINGS: 200
+BIKE THINGS: 300
+TRUCK THINGS: 400
+WANDA THINGS: 500
+SUPERMARKET THINGS: 600
+TACO BELL THINGS: 700

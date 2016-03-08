@@ -28,26 +28,19 @@
         ));
     });
 
-    $app->post("/stage/1", function() use ($app) {
+    $app->post("/landing_page", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
-        $stage = Stage::find(1);
+        $stage = Stage::find(101);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
-            'stage' => $stage
-        ));
-    });
+            'stage' => $stage,
+            'message' => array(
 
-    $app->post("/stage/{id}", function($id) use ($app) {
-        $stage = Stage::find($id);
-        $player = Player::getAll();
-        return $app['twig']->render('stage.html.twig', array(
-            'player' => $player[0],
-            'description' => $stage->getDescription(),
-            'stage' => $stage
+            )
         ));
     });
 
@@ -55,11 +48,15 @@
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
-        $stage = Stage::find(1);
+        $stage = Stage::find(101);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You hit the snooze for another 9 minutes.'
+            )
         ));
     });
 
@@ -69,34 +66,44 @@
 
         //remove ability to click clean room again
         $player = Player::getAll();
-        $stage = Stage::find(1);
+        $stage = Stage::find(101);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You cleaned your room, and found $5! SWEET!'
+            )
         ));
     });
 
-    $app->get("/stage/2", function() use ($app) {
+    $app->get("/stage/{id}", function($id) use ($app) {
+        $stage = Stage::find($id);
         $player = Player::getAll();
-        $stage = Stage::find(2);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
 
+            )
         ));
     });
-
+//102
     $app->post("/get_sunscreen", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
-        $stage = Stage::find(2);
+        $stage = Stage::find(102);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You grabbed the sunscreen! Way to be health-conscious!'
+            )
         ));
     });
 
@@ -104,11 +111,15 @@
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
-        $stage = Stage::find(2);
+        $stage = Stage::find(102);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You grabbed the keys! Hopefully they will come in handy!'
+            )
         ));
     });
 
@@ -116,21 +127,65 @@
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
-        $stage = Stage::find(2);
+        $stage = Stage::find(102);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You grabbed the phone! Maybe you can use it later to call some peeps.'
+            )
         ));
     });
-
-    $app->get("/stage/3", function() use ($app) {
+//103
+    $app->post("/take_burrito", function() use ($app) {
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
-        $stage = Stage::find(3);
+        $stage = Stage::find(103);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You took the frozen burrito!'
+            )
+        ));
+    });
+//add death function
+    $app->post("/eat_frozen_burrito", function() use ($app) {
+
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+        $player = Player::getAll();
+        $stage = Stage::find(103);
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+            'message' => array(
+                'type' => 'warning',
+                'text' => 'You ate the frozen burrito AND DIED!'
+            )
+        ));
+    });
+//104
+    $app->post("/ride_bike", function() use ($app) {
+
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+        $player = Player::getAll();
+        $stage = Stage::find(301);
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+            'message' => array(
+                'type' => 'warning',
+                'text' => 'You ate the frozen burrito AND DIED!'
+            )
         ));
     });
 
