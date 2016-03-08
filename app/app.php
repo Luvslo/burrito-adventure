@@ -155,36 +155,47 @@
         ));
     });
 //add death function
-    $app->post("/eat_frozen_burrito", function() use ($app) {
 
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
+//104
+    // $app->post("/ride_bike", function() use ($app) {
+    //
+    //     //GAME_ID IS CURRENTLY HARD CODED TO 1
+    //     //MIGHT NEED TO BE CHANGED?
+    //     $player = Player::getAll();
+    //     $stage = Stage::find(301);
+    //     return $app['twig']->render('stage.html.twig', array(
+    //         'player' => $player[0],
+    //         'description' => $stage->getDescription(),
+    //         'stage' => $stage,
+    //         'message' => array(
+    //             'type' => 'warning',
+    //             'text' => 'You ate the frozen burrito AND DIED!'
+    //         )
+    //     ));
+    // });
+//401
+    $app->get("/ask_for_burrito", function() use ($app) {
         $player = Player::getAll();
-        $stage = Stage::find(103);
+        $stage = Stage::find(401);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'message' => array(
-                'type' => 'warning',
-                'text' => 'You ate the frozen burrito AND DIED!'
+
             )
         ));
     });
-//104
-    $app->post("/ride_bike", function() use ($app) {
 
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
+    $app->post("/take_burrito", function() use ($app) {
         $player = Player::getAll();
-        $stage = Stage::find(301);
+        $stage = Stage::find(401);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'message' => array(
-                'type' => 'warning',
-                'text' => 'You ate the frozen burrito AND DIED!'
+
             )
         ));
     });
