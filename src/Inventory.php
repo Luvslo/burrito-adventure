@@ -102,5 +102,10 @@
                 $GLOBALS['DB']->exec("DELETE FROM inventories;");
             }
 
+            function putInInventory($name)
+            {
+                $GLOBALS['DB']->exec("UPDATE inventories SET in_inventory = 1 WHERE name = '{$name}';");
+            }
+
         }
 ?>

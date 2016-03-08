@@ -110,5 +110,23 @@
             $this->assertEquals(0, $current_inventory[1]->getInInventory());
         }
 
+        function test_putInInventory()
+        {
+            $name = "Frozen Burrito";
+            $description = "This frozen burrito looks super questionable. It's probably been frozen for a long time, and is as hard as a rock. Is that mold I see?";
+            $id = null;
+            $game_id = 1;
+            $in_inventory = 0;
+
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory->save();
+
+            $test_inventory->putInInventory("Frozen Burrito");
+
+            $current_inventory = Inventory::getAll();
+
+            $this->assertEquals(1, $current_inventory[0]->getInInventory());
+        }
+
     }
  ?>
