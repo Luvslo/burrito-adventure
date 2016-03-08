@@ -10,13 +10,14 @@ class Game
 
     function getId()
     {
-        return $this->getId();
+        return $this->id;
     }
 
     function death($reason)
+    //Move this to stage class?
     {
-        echo ($reason + "Game over!");
-        exit(0);
+        echo ($reason + " GAME OVER");
+        // exit(0);
     }
 
 }

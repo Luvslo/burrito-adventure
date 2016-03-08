@@ -1,5 +1,5 @@
 <?php
-    // 
+    //
     // /**
     // * @backupGlobals disabled
     // * @backupStaticAttributes disabled
@@ -8,9 +8,9 @@
     // require_once __DIR__ . '/../src/Room.php';
     //
     // $server = 'mysql:host=localhost;dbname=burritos_test';
-    // $usercourse_name = 'root';
+    // $user_name = 'root';
     // $password = 'root';
-    // $DB = new PDO($server, $usercourse_name, $password);
+    // $DB = new PDO($server, $user_name, $password);
     //
     // class RoomTest extends PHPUnit_Framework_TestCase
     // {

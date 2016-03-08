@@ -19,7 +19,7 @@ if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out e
     if USE BURRITO => ("You bludgeon the delivery man to death with your frozen burrito.  The cops immediately swarm the house.  You vaguely wonder if they were hiding in the bushes as they slap the cuffs on.  You go to prison forever.  There are no burritos in prison.  YOU DEAD.")
     else (loop delivery man demanding money)
 
-DEAD function
+!!! DEATH function GOES IN THE STAGE CLASS !!!
 
 3. GARAGE
 description: "You walk into the garage, and see your BIKE. There's a door for the KITCHEN and a door OUTSIDE. WHAT DO?"
