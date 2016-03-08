@@ -1,4 +1,4 @@
-1. You wake up.  You're hung over, famished,  and your room is filthy.  You get the sense that if you don't eat a burrito in the next hour, you will die. You look in your wallet and find that you only have $1.  WHAT DO?
+1. You wake up.  You're hung over, famished. It must've been a great party last night.  Your room is filthy.  You get the sense that if you don't eat a burrito in the next hour, you will die. You look in your wallet and find that you only have $1.  WHAT DO?
 choice1 = CLEAN
 choice2 = GO TO KITCHEN
 
@@ -46,13 +46,32 @@ option3: go back into kitchen
 6. BURRITO TRUCK->GO TO BURRITO TRUCK
 description: "You make your way to the burrito truck. Working at the counter is a sweet but frail old man who seems to be making an ULTIMATE BURRITO for himself. He sees he has a customer and quickly perks up. 'Hello, my friend! What can I get for you?'"
 Option1: Ask for a burrito
-Option2: Ask for his burrito
+Option2: Try to take his burrito
 Option3: Go to buddy's house
 Option4: Go back home.
 
 7. BURRITO TRUCK->ASK FOR A BURRITO
 description: "'One burrito right away, my friend!' The man proceeds to make a delicious looking burrito with all the works. It looks almost as good as the burrito the man made for himself! 'Alright, my friend, that'll be $5"
 IF HAVE $5, get burrito. YOU WIN!
-IF NO HAVE $5 "The old man quickly turns as red as a tomato. 'I TRUSTED YOU TO HAVE MONEY FOR THIS BURRITO! YOU HAVE BETRAYED ME! I AM SO MAD, I COULD....' the old man is overwhelmed by his emotions '"
+IF NO HAVE $5 "The old man quickly turns as red as a tomato. 'I TRUSTED YOU TO HAVE MONEY FOR THIS BURRITO! YOU HAVE BETRAYED ME! I AM SO MAD, I COULD....' the old man is overwhelmed by his emotions and has a heart attack. He drops the burrito he made for you on the ground and it's totally ruined."
+Option1: Call an ambulance.
+Option2: Take his burrito and run.
 
-8. BURRITO TRUCK-> ASK FOR HIS BURRITO
+8. CALL AMBULANCE
+description: "You call an ambulance from the burrito truck's phone. The ambulance arrives, but unfortunately the driver was at the same party as you last night and had a little too much to drink as well! As he approaches the burrito truck, his foot accidentally slams the gas instead of breaks. He plows into you and the burrito truck at a very high velocity. Everyone just died! YOU DEAD"
+
+9. TAKE OLD MAN'S BURRITO
+description: "You ignore the fact that the old man is dying and reach behind the counter to grab his ULTIMATE BURRITO. You eat the burrito as you flee the scene, so it doesn't get too cold. Wow you should've tried eating burritos while running sooner, the burrito is somehow more delicious that way. The old man dies. YOU WIN!!!!"
+
+10. BURRITO TRUCK-> TRY TO TAKE HIS BURRITO
+description: "You try to distract the old man. 'Is that Gary Busey across the street?' The old man turns his head slightly, and you try to grab his burrito. As quickly as you reach for the burrito, the old man grabs your arm. 'I don't think so, my friend.' You try to struggle out of his grip but this only makes the old man angrier. You punch his throat and the old man's face turns blue. You broke his windpipe! The old man collapses to the ground, unable to breathe."
+Option1: Call an ambulance. => #8
+Option2: Take his burrito and run. => #9
+
+11. GO TO BUDDY'S HOUSE
+description: "You make your way to your buddy's house. Her name is Wanda. (BET YOU THOUGHT THE BUDDY WAS A GUY. SEXIST. GIRLS CAN BE YOUR BUDDY TOO.) You knock on her door but there is no answer. She usually answers."
+Option1: Pick her lock
+Option2: Go back home and worry about Wanda later.
+
+12. INSIDE WANDA'S HOUSE
+description: "Wanda is passed out cold. She was at the party too. "
