@@ -95,6 +95,15 @@ bum_help = true in inventory
 
 16. DON'T HELP HIM
 description: "The homeless man yells at you. You feel bad."
+send on to 17
 
 17. ON THE CORNER OF SUPERMARKET AND TACO BELL
-description: ""
+description: "The homeless man runs away. Finally he's no longer here on this corner and you can concentrate on where to go for your burrito. The taco bell is kitty corner to the super market. The sign on the front of the taco bell says "ALL BURRITOS $5. AND WE'RE HIRING". Where do you want to try and get a burrito?"
+option1: Go to taco bell
+option2: Go to supermarket
+
+18. GO INSIDE TACO BELL WITH $5
+description: "Yo quiero Taco Bell! This taco bell kinda sucks though and only sells one type of burrito for $5. Fortunately, you have $5. You buy the one burrito that they sell there, which happens to cost $5 AND be your favorite! YOU WIN!"
+
+19. GO INSIDE TACO BELL WITHOUT $5
+description: "The cashier notices you are poor. 'Might I make a suggestion kind stranger? Taco Bell offers a WONDERFUL employment experience. With a Taco Bell paycheck, you could get AS MANY BURRITOS AS YOUR SWEET HEART DESIRES! Would you like an application?' The cashier makes quite an impression on you, and you take the job immediately. Good news: you have an unlimited supply of burritos! Bad news: you work at Taco Bell. YOU.....WIN?"
