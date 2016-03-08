@@ -1,4 +1,4 @@
-1. You wake up.  You're hung over, famished,  and your room is filthy.  You get the sense that if you don't eat a burrito in the next hour, you will die.  WHAT DO?
+1. You wake up.  You're hung over, famished,  and your room is filthy.  You get the sense that if you don't eat a burrito in the next hour, you will die. You look in your wallet and find that you only have $1.  WHAT DO?
 choice1 = CLEAN
 choice2 = GO TO KITCHEN
 
@@ -9,15 +9,18 @@ if KITCHEN => current_stage = KITCHEN
 description "You walk into the kitchen.  The sun is extremely bright.   You shield your hungover eyes.  Inside the kitchen you have a FRIDGE.  KEYS, PHONE, and SUNSCREEN are sitting on the counter.  You can enter the GARAGE or LEAVE the house.  WHAT DO?"
 get SUNSCREEN (push SUNSCREEN to INVENTORY)
 get KEYS (push KEYS to INVENTORY)
+get PHONE (can call delivery)
 (GARAGE => bike (NEED KEYS))
 (LEAVE => walk down the street)
 (FRIDGE => see FROZEN BURRITO ("You see a horrific sight.  An Amy's frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer.  It is now a lovely spectrum of green and black, and frozen completely solid.  You could probably hurt someone with this thing."))
 if take FROZEN BURRITO => inventory += burrito
 if EAT FROZEN_BURRITO => DEAD ("Against your better judgement, you toss the burrito in your microwave and choke the putrid goo-mass down.  You immediately start vomiting and don't stop.  YOU DEAD." exit(0))
 
+
 if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out expectantly. But you don't have enough money!  Your inventory contains {#inventory[0]}")
-    if USE BURRITO => ("You bludgeon the delivery man to death with your frozen burrito.  The cops immediately swarm the house.  You vaguely wonder if they were hiding in the bushes as they slap the cuffs on.  You go to prison forever.  There are no burritos in prison.  YOU DEAD.")
-    else (loop delivery man demanding money)
+    if PHONE DELIVERY & NO MONEY & no FROZEN BURRITO => YOU DEAD
+    if PHONE DELIVERY & NO MONEY & have FROZEN BURRITO => "The delivery man, who's had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death."
+    if PHONE DELIVERY & HAVE MONEY => "You are delivered the most supreme burrito, a LEVEL 5. CONGRATS"
 
 !!! DEATH function GOES IN THE STAGE CLASS !!!
 
@@ -28,6 +31,28 @@ if has_key & RIDE BIKE => "You unlock your bike and take it outside"
 if OUTSIDE (LEAVE) => walk down the street
 
 4. RIDE BIKE->GO OUTSIDE
-description: "You walk outside.  It's beautiful!  The chirping birds and bright sunshine only worsen your pounding hangover headache.  You consider your burrito options...there's a supermarket nearby or a taco stand a few miles away. WHAT DO?"
-if SUPERMARKET =>
-if TACO_STAND =>
+description: "You walk outside.  It's beautiful!  The chirping birds and bright sunshine only worsen your pounding hangover headache.  You consider your burrito options...there's a supermarket and a taco bell a few miles away, a burrito truck a mile away, or your buddy's house a few blocks away. WHAT DO?"
+option1: SUPERMARKET & TACO BELL
+option2: BURRITO TRUCK
+option3: BUDDY'S HOUSE
+or go back into garage
+
+5. WALKING->GO OUTSIDE
+description: "You walk outside, and you remember there's a delicious burrito truck only about a mile away. You also remember that your buddy lives just 2 blocks away. He sometimes has burritos! WHAT DO?"
+Option1: go to the burrito truck
+Option2: go to your buddy's house
+option3: go back into kitchen
+
+6. BURRITO TRUCK->GO TO BURRITO TRUCK
+description: "You make your way to the burrito truck. Working at the counter is a sweet but frail old man who seems to be making an ULTIMATE BURRITO for himself. He sees he has a customer and quickly perks up. 'Hello, my friend! What can I get for you?'"
+Option1: Ask for a burrito
+Option2: Ask for his burrito
+Option3: Go to buddy's house
+Option4: Go back home.
+
+7. BURRITO TRUCK->ASK FOR A BURRITO
+description: "'One burrito right away, my friend!' The man proceeds to make a delicious looking burrito with all the works. It looks almost as good as the burrito the man made for himself! 'Alright, my friend, that'll be $5"
+IF HAVE $5, get burrito. YOU WIN!
+IF NO HAVE $5 "The old man quickly turns as red as a tomato. 'I TRUSTED YOU TO HAVE MONEY FOR THIS BURRITO! YOU HAVE BETRAYED ME! I AM SO MAD, I COULD....' the old man is overwhelmed by his emotions '"
+
+8. BURRITO TRUCK-> ASK FOR HIS BURRITO

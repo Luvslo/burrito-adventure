@@ -84,5 +84,6 @@
                 $GLOBALS['DB']->exec("DELETE FROM stages;");
             }
 
+
         }
 ?>
