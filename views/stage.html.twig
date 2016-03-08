@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include '/includes/head.html.twig' %}
+    </head>
+    <body>
+        <div class="container">
+            {% include '/includes/message.html.twig' %}
+
+            <h1>Hi, {{ player.getName }}!</h1>
+            <h3>You are in the {{ stage.getName }}</h3>
+            <p>
+                {{description}}
+            </p>
+
+                {% include '/stages/' ~ stage.getId ~ '.html.twig' %}
+
+        </div>
+    </body>
+</html>

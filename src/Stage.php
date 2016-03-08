@@ -19,19 +19,10 @@
                 return $this->name;
             }
 
-            function setName($new_name)
-            {
-                $this->name = $new_name;
-            }
 
             function getDescription()
             {
                 return $this->description;
-            }
-
-            function setDescription($new_description)
-            {
-                $this->description = $new_description;
             }
 
             function getGameId()
@@ -39,14 +30,9 @@
                 return $this->game_id;
             }
 
-            function setGameId($new_game_id)
-            {
-                $this->game_id = $new_game_id;
-            }
-
             function getId()
             {
-                return $this->name;
+                return $this->id;
             }
 
             function adjustPunctuation($input)
@@ -63,6 +49,26 @@
                 $this->id = $GLOBALS['DB']->lastInsertId();
             }
 
+            function getActions()
+            {
+                $returned_actions = $GLOBALS['DB']->query("SELECT * FROM actions WHERE stage_id = {$this->getId()};");
+
+                
+
+                $actions = [];
+                foreach ($returned_actions as $action) {
+                    // $action = Action::find($stage_action['action_id']);
+                    $name = $action['name'];
+                    $description = $action['description'];
+                    $stage_id = $action['stage_id'];
+                    $id = $action['id'];
+                    $new_action = new Action($name, $description, $stage_id, $id);
+                    array_push($actions, $new_action);
+                }
+                return $actions;
+            }
+
+
             static function getAll()
             {
                 $returned_stages = $GLOBALS['DB']->query("SELECT * FROM stages;");
@@ -78,6 +84,20 @@
                 }
                 return $stages;
             }
+
+            static function find($search_id)
+            {
+                $stages = Stage::getAll();
+                $found_stage = null;
+
+                foreach ($stages as $stage)
+                if (($stage->getId()) == $search_id)
+                {
+                    $found_stage = $stage;
+                }
+                return $found_stage;
+            }
+
 
             static function deleteAll()
             {
