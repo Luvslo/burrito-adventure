@@ -46,7 +46,7 @@
 
             function getId()
             {
-                return $this->name;
+                return $this->id;
             }
 
             function adjustPunctuation($input)
@@ -78,6 +78,20 @@
                 }
                 return $stages;
             }
+
+            static function find($search_id)
+            {   
+                $stages = Stage::getAll();
+                $found_stage = null;
+
+                foreach ($stages as $stage)
+                if (($stage->getId()) == $search_id)
+                {
+                    $found_stage = $stage;
+                }
+                return $found_stage;
+            }
+
 
             static function deleteAll()
             {

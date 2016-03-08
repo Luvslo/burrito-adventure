@@ -7,6 +7,8 @@
 
     $app = new Silex\Application();
 
+    $app['debug'] = true;
+
     use Symfony\Component\HttpFoundation\Request;
     Request::enableHttpMethodParameterOverride();
 
@@ -20,17 +22,27 @@
 
     $app->get("/", function() use ($app) {
         $players = Player::getAll();
-        return $app['twig']->render('index.html.twig', array('players' => $players));
-    });
-
-    $app->get("/player_info", function() use ($app) {
-        $players = Player::getAll();
 
         return $app['twig']->render('index.html.twig', array(
+            'players' => $players,
             'form' => true,
-            'players' => $players
+
         ));
     });
+
+    $app->post("/stage/1", function() use ($app) {
+
+        $players = Player::getAll();
+
+        $stage = Stage::find(1);
+        return $app['twig']->render('stage.html.twig', array(
+            'players' => $players,
+            'description' => $stage->getDescription(),
+            'stage' => $stage
+        ));
+    });
+
+
 
     return $app;
 ?>

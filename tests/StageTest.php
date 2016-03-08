@@ -55,5 +55,28 @@
 
             $this->assertEquals([$test_stage, $test_stage2], $result);
         }
+
+        function test_find()
+        {
+            $name = "Kitchen";
+            $description = "This is a kitchen and there's stuff in it";
+            $id = 1;
+            $game_id = 1;
+
+            $test_stage = new Stage($name, $description, $game_id, $id);
+            $test_stage->save();
+
+            $name2 = "Bedroom";
+            $description2 = "You wake up in a bedroom. You are hungry for burritos.";
+            $id2 = 2;
+            $game_id2 = 2;
+
+            $test_stage2 = new Stage($name2, $description2, $game_id2, $id2);
+            $test_stage2->save();
+
+            $result = Stage::find($test_stage2->getId());
+
+            $this->assertEquals($test_stage2, $result);
+        }
     }
  ?>
