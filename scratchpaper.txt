@@ -31,3 +31,20 @@
 //         )
 //     ));
 // });
+
+// The code below is our first attempt at making a stage template
+$app->get("/stage/{stage_id}/{action_id}", function($stage_id, $action_id) use ($app) {
+    $player = Player::getAll();
+    $stage = Stage::find($stage_id);
+    $actions = $stage->getActions();
+
+    return $app['twig']->render('stage.html.twig', array(
+        'action1' => $actions[0],
+        'action2' => $actions[1],
+        'action3' => $actions[2],
+        'player' => $player[0],
+        'description' => $stage->getDescription(),
+        'stage' => $stage,
+
+    ));
+});

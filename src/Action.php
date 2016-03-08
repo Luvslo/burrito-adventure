@@ -45,7 +45,7 @@
 
         function save()
         {
-            $GLOBALS['DB']->exec("INSERT INTO actions (name, description, stage_id) VALUES ('{$this->adjustPunctuation({$this->getName()})', '{$this->adjustPunctuation({$this->getDescription()})',, {$this->getStageId()});");
+            $GLOBALS['DB']->exec("INSERT INTO actions (name, description, stage_id) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getStageId()});");
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
@@ -76,6 +76,11 @@
                 $found_action = $action;
             }
             return $found_action;
+        }
+
+        static function deleteAll()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM actions;");
         }
 
     }

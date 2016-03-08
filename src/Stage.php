@@ -49,6 +49,26 @@
                 $this->id = $GLOBALS['DB']->lastInsertId();
             }
 
+            function getActions()
+            {
+                $returned_actions = $GLOBALS['DB']->query("SELECT * FROM actions WHERE stage_id = {$this->getId()};");
+
+                
+
+                $actions = [];
+                foreach ($returned_actions as $action) {
+                    // $action = Action::find($stage_action['action_id']);
+                    $name = $action['name'];
+                    $description = $action['description'];
+                    $stage_id = $action['stage_id'];
+                    $id = $action['id'];
+                    $new_action = new Action($name, $description, $stage_id, $id);
+                    array_push($actions, $new_action);
+                }
+                return $actions;
+            }
+
+
             static function getAll()
             {
                 $returned_stages = $GLOBALS['DB']->query("SELECT * FROM stages;");
