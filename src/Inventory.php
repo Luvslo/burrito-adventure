@@ -1,6 +1,6 @@
 <?php
 
-    class Object
+    class Inventory
         {
             private $name;
             private $description;
@@ -71,30 +71,35 @@
 
             function save()
             {
-                $GLOBALS['DB']->exec("INSERT INTO objects (name, description, game_id, in_inventory) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()});");
+                $GLOBALS['DB']->exec("INSERT INTO inventories (name, description, game_id, in_inventory) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()});");
                 $this->id = $GLOBALS['DB']->lastInsertId();
             }
 
             static function getAll()
             {
-                $returned_objects = $GLOBALS['DB']->query("SELECT * FROM objects;");
-                $objects = array();
+                $returned_inventories = $GLOBALS['DB']->query("SELECT * FROM inventories;");
+                $inventories = array();
 
-                foreach($returned_objects as $object) {
-                    $name = $object['name'];
-                    $description = $object['description'];
-                    $game_id = $object['game_id'];
-                    $in_inventory = $object['in_inventory'];
-                    $id = $object['id'];
-                    $new_object = new Object($name, $description, $game_id, $in_inventory, $id);
-                    array_push($objects, $new_object);
+                foreach($returned_inventories as $inventory) {
+                    $name = $inventory['name'];
+                    $description = $inventory['description'];
+                    $game_id = $inventory['game_id'];
+                    $in_inventory = $inventory['in_inventory'];
+                    $id = $inventory['id'];
+                    $new_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+                    array_push($inventories, $new_inventory);
                 }
-                return $objects;
+                return $inventories;
+            }
+
+            static function reset()
+            {
+                $GLOBALS['DB']->exec("UPDATE inventories SET in_inventory = 0;");
             }
 
             static function deleteAll()
             {
-                $GLOBALS['DB']->exec("DELETE FROM objects;");
+                $GLOBALS['DB']->exec("DELETE FROM inventories;");
             }
 
         }
