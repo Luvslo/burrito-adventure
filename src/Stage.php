@@ -19,29 +19,15 @@
                 return $this->name;
             }
 
-            function setName($new_name)
-            {
-                $this->name = $new_name;
-            }
 
             function getDescription()
             {
                 return $this->description;
             }
 
-            function setDescription($new_description)
-            {
-                $this->description = $new_description;
-            }
-
             function getGameId()
             {
                 return $this->game_id;
-            }
-
-            function setGameId($new_game_id)
-            {
-                $this->game_id = $new_game_id;
             }
 
             function getId()
@@ -80,7 +66,7 @@
             }
 
             static function find($search_id)
-            {   
+            {
                 $stages = Stage::getAll();
                 $found_stage = null;
 

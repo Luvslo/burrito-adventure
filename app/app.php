@@ -31,18 +31,56 @@
     });
 
     $app->post("/stage/1", function() use ($app) {
-
-        $players = Player::getAll();
-
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+        $player = new Player ($_POST['player_name'], 1);
+        $player->save();
         $stage = Stage::find(1);
         return $app['twig']->render('stage.html.twig', array(
-            'players' => $players,
+            'player' => $player,
             'description' => $stage->getDescription(),
             'stage' => $stage
         ));
     });
 
+    $app->post("/snooze", function() use ($app) {
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+        $player = Player::getAll();
+        $stage = Stage::find(1);
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
 
+        ));
+    });
+
+    $app->post("/clean_room", function() use ($app) {
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+
+        //remove ability to click clean room again
+        $player = Player::getAll();
+        $stage = Stage::find(1);
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+
+        ));
+    });
+
+    $app->get("/stage/2", function() use ($app) {
+        $player = Player::getAll();
+        $stage = Stage::find(2);
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+
+        ));
+    });
 
     return $app;
 ?>

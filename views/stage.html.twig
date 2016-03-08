@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>Stage {{ stage.getId }}</title>
+        {% include '/includes/head.html.twig' %}
     </head>
     <body>
-        <h1>Hi, {{ player.getName }}!</h1>
-        <h3>You are in the {{ stage.getName }}</h3>
-        <p>
-            {{description}}
-        </p>
+        <div class="container">
+
+            <h1>Hi, {{ player.getName }}!</h1>
+            <h3>You are in the {{ stage.getName }}</h3>
+            <p>
+                {{description}}
+            </p>
+
+            <form action="/{{ stage.getAction1 }}" method="post">
+                <button type="submit" name="button">Clean Your Room</button>
+            </form>
+            <form action="/snooze" method="post">
+                <button type="submit" name="button">Snooze for 9 Minutes</button>
+            </form>
+            <form action="/stage/2" method="get">
+                <button type="submit" name="button">Go To Kitchen</button>
+            </form>
+        </div>
     </body>
 </html>

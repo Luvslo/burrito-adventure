@@ -1,0 +1,33 @@
+// $app->post("/snooze", function() use ($app) {
+//     //GAME_ID IS CURRENTLY HARD CODED TO 1
+//     //MIGHT NEED TO BE CHANGED?
+//     $player = Player::getAll();
+//     $stage = Stage::find(1);
+//     return $app['twig']->render('stage.html.twig', array(
+//         'player' => $player[0],
+//         'description' => $stage->getDescription(),
+//         'stage' => $stage,
+//         'message' => array(
+//             'type' => 'warning',
+//             'text' => 'You snoozed for 9 minutes!'
+//         )
+//     ));
+// });
+//
+// $app->post("/clean_room", function() use ($app) {
+//     //GAME_ID IS CURRENTLY HARD CODED TO 1
+//     //MIGHT NEED TO BE CHANGED?
+//
+//     //remove ability to click clean room again
+//     $player = Player::getAll();
+//     $stage = Stage::find(1);
+//     return $app['twig']->render('stage.html.twig', array(
+//         'player' => $player[0],
+//         'description' => $stage->getDescription(),
+//         'stage' => $stage,
+//         'message' => array(
+//             'type' => 'info',
+//             'text' => 'You cleaned your room, and found $5! SWEET!'
+//         )
+//     ));
+// });
