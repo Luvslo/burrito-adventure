@@ -7,7 +7,16 @@
     {% include '/includes/navbar.html.twig' %}
     <div class="container">
       {% include '/includes/message.html.twig'%}
+      <h1>Burrito Adventure</h1>
+
+      {% if player is empty %}
+      <form action="/player_info" method="get">
+        <button type="submit" name="button">START NEW GAME!</button>
+      </form>
+      {% else %}
+
       {% include '/includes/form.html.twig' %}
+      {% endif %}
     </div>
   </body>
 </html>
