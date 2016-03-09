@@ -49,6 +49,22 @@ $app->get("/stage/{stage_id}/{action_id}", function($stage_id, $action_id) use (
     ));
 });
 
+if (array_search('frozen burrito', array_column($item, 'name'))) {
+    $state = $state + 9;
+}
+if (array_search('cactus', array_column($item, 'name'))) {
+    $state = $state + 17;
+}
+if (array_search('sunscreen', array_column($item, 'name'))) {
+    $state = $state + 37;
+}
+if (array_search('bumhelp', array_column($item, 'name'))) {
+    $state = $state + 99;
+}
+
+
+
+
 
 
 HOUSE THINGS: 100
