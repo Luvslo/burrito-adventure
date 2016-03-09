@@ -177,27 +177,6 @@
         ));
     });
 
-    $app->post("/get_phone", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
-        $player = Player::getAll();
-        $stage = Stage::find(102);
-        $phone = Inventory::find(12);
-        $phone->putInInventory('phone');
-        $inventories = Inventory::isInInventory();
-        $money = Money::getAll();
-        return $app['twig']->render('stage.html.twig', array(
-            'player' => $player[0],
-            'description' => $stage->getDescription(),
-            'stage' => $stage,
-            'money' => $money->getValue(),
-            'inventories' => $inventories,
-            'message' => array(
-                'type' => 'info',
-                'text' => 'You grabbed the phone! Maybe you can use it later to call some peeps.'
-            )
-        ));
-    });
 //103
     $app->post("/take_frozen_burrito", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
@@ -333,7 +312,7 @@
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
-                'text' => 'You grabbed the phone! Maybe you can use it later to call some peeps.'
+                'text' => 'You looted Wandas purse! YOU SLY DOG! You scored $8 from that trickery!'
             )
         ));
     });
