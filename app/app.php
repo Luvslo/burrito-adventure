@@ -30,11 +30,6 @@
     });
 
     $app->post("/landing_page", function() use ($app) {
-<<<<<<< HEAD
-=======
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
->>>>>>> b289b4085061b0d85a07b0522d54e80b8b8e9e25
         Inventory::reset();
         $player = new Player ($_POST['player_name'], 1);
         $player->save();

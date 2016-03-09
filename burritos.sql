@@ -46,18 +46,30 @@ CREATE TABLE `inventories` (
 --
 
 INSERT INTO `inventories` (`name`, `description`, `game_id`, `in_inventory`, `id`) VALUES
-('keys', 'These are your keys. One of the keys is to your bike lock', 1, 1, 1),
+('keys', 'These are your keys. One of the keys is to your bike lock', 1, 0, 1),
 ('frozen burrito', 'This frozen burrito looks super questionable. It has probably been frozen for a long time, and is as hard as a rock. Is that mold I see?', 1, 0, 2),
-('cactus', 'It is a cactus. Its needles look dangerous. ', 1, 1, 3),
-('sunscreen', 'It can protect you from the sun. It is also very slippery.', 1, 1, 4),
+('cactus', 'It is a cactus. Its needles look dangerous. ', 1, 0, 3),
+('sunscreen', 'It can protect you from the sun. It is also very slippery.', 1, 0, 4),
 ('bumhelp', 'You helped a bum. For some reason your inventory is remembering this. Bum magic!', 1, 0, 5),
-('zero dollars', 'You have NO money.', 1, 0, 6),
-('one dollar', 'You have one dollar. Hi George.', 1, 1, 7),
-('two dollars', 'You have two dollars.', 1, 0, 8),
-('three dollars', 'You have three dollars.', 1, 0, 9),
-('four dollars', 'You have four dollars.', 1, 0, 10),
-('five dollars', 'You have five dollars.', 1, 0, 11),
 ('phone', 'This is your phone. You can call people from it!', 1, 0, 12);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `money`
+--
+
+CREATE TABLE `money` (
+  `value` int(11) NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `money`
+--
+
+INSERT INTO `money` (`value`, `id`) VALUES
+(3, 1);
 
 -- --------------------------------------------------------
 
@@ -76,66 +88,7 @@ CREATE TABLE `player` (
 --
 
 INSERT INTO `player` (`name`, `game_id`, `id`) VALUES
-('Joe', 1, 1),
-('Mary', 1, 2),
-('Mary', 1, 3),
-('Mary', 1, 4),
-('Mary', 1, 5),
-('Mary', 1, 6),
-('Mary', 1, 7),
-('Mary', 1, 8),
-('Mary', 1, 9),
-('Mary', 1, 10),
-('Mary', 1, 11),
-('Mary', 1, 12),
-('Mary', 1, 13),
-('Mary', 1, 14),
-('Mary', 1, 15),
-('Mary', 1, 16),
-('Mary', 1, 17),
-('Mary', 1, 18),
-('Mary', 1, 19),
-('', 1, 20),
-('Mry', 1, 21),
-('', 1, 22),
-('', 1, 23),
-('', 1, 24),
-('', 1, 25),
-('', 1, 26),
-('Mary', 1, 27),
-('Mary', 1, 28),
-('Joe', 1, 29),
-('Joe', 1, 30),
-('Joe', 1, 31),
-('Joe', 1, 32),
-('Joe', 1, 33),
-('Joe', 1, 34),
-('Mary', 1, 35),
-('Joe', 1, 36),
-('Joe', 1, 37),
-('Joe', 1, 38),
-('JOe', 1, 39),
-('JOe', 1, 40),
-('JOe', 1, 41),
-('JOe', 1, 42),
-('JOe', 1, 43),
-('JOe', 1, 44),
-('', 1, 45),
-('HOE', 1, 46),
-('HOE', 1, 47),
-('Joe', 1, 48),
-('Joe', 1, 49),
-('Joe', 1, 50),
-('', 1, 51),
-('Marika', 1, 52),
-('Marika', 1, 53),
-('Marky mark', 1, 54),
-('Hi', 1, 55),
-('Joe', 1, 56),
-('Joe', 1, 57),
-('Joe', 1, 58),
-('Marika', 1, 59),
-('Joe', 1, 60);
+('Mary', 1, 77);
 
 -- --------------------------------------------------------
 
@@ -155,14 +108,19 @@ CREATE TABLE `stages` (
 --
 
 INSERT INTO `stages` (`name`, `description`, `game_id`, `id`) VALUES
-('BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die.  WHAT DO?', 1, 101),
-('KITCHEN', 'You walk into the kitchen. The sun is extremely bright. You shield your hungover eyes. Inside the kitchen, you have a FRIDGE. KEYS, PHONE, and SUNSCREEN are sitting on the counter. You can enter the GARAGE or LEAVE the house. WHAT DO?', 1, 102),
-('FRIDGE', 'You see a horrific sight.  An Amy''s frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer.  It is now a lovely spectrum of green and black, and frozen completely solid.  You could probably hurt someone with this thing.', 1, 103),
-('GARAGE', 'You walk into the garage, and see your BIKE. There''s a door for the KITCHEN and a door OUTSIDE. WHAT DO?', 1, 104),
+('IN YOUR BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die.  WHAT DO?', 1, 101),
+('IN THE KITCHEN', 'You walk into the kitchen. The sun is extremely bright. You shield your hungover eyes. Inside the kitchen, you have a FRIDGE. KEYS, PHONE, and SUNSCREEN are sitting on the counter. You can enter the GARAGE or LEAVE the house. WHAT DO?', 1, 102),
+('LOOKING IN THE FRIDGE', 'You see a horrific sight.  An Amy''s frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer.  It is now a lovely spectrum of green and black, and frozen completely solid.  You could probably hurt someone with this thing.', 1, 103),
+('IN THE GARAGE', 'You walk into the garage, and see your BIKE. There''s a door for the KITCHEN and a door OUTSIDE. WHAT DO?', 1, 104),
 ('OUTSIDE', 'You walk outside, and you remember there''s a delicious burrito truck only about a mile away. You also remember that your buddy lives just 2 blocks away. He sometimes has burritos! WHAT DO?', 1, 105),
 ('EATING THE MONSTROUS BURRITO', 'Against your better judgement, you toss the burrito in your microwave and choke the putrid goo-mass down.  You immediately start vomiting and don''t stop.', 1, 106),
-('RIDE YOUR BIKE', 'You unlock your bike and take it outside. It''s beautiful!  But the chirping birds and bright sunshine only prove to worsen your pounding hangover headache.  You consider your burrito options...there''s a SUPERMARKEY and a TACO BELL a few miles away, a BURRITO TRUCK a mile away, or your BUDDY''S HOUSE a few blocks away. WHAT DO?', 1, 301),
-('BURRITO TRUCK', 'You make your way to the BURRITO TRUCK. Working at the counter is a sweet but frail old man who seems to be making an ULTIMATE BURRITO for himself. He sees he has a customer and quickly perks up. ''Hello, my friend! What can I get for you?''', 1, 401),
+('USING THE PHONE', 'You pick up your old school landline phone. Maybe you could order a burrito!', 1, 107),
+('FACING THE DELIVERY MAN', 'The delivery man holds his hand out expectantly. But you don''t have enough money!', 1, 108),
+('ORDERING A BURRITO', 'The delivery man, who''s had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death. The burrito is there for the taking!', 1, 109),
+('ORDERING A BURRITO', 'You are delivered the most supreme burrito, a LEVEL 5. CONGRATS!', 1, 110),
+('RIDING YOUR BIKE', 'You unlock your bike and take it outside. It''s beautiful!  But the chirping birds and bright sunshine only prove to worsen your pounding hangover headache.  You consider your burrito options...there''s a SUPERMARKEY and a TACO BELL a few miles away, a BURRITO TRUCK a mile away, or your BUDDY''S HOUSE a few blocks away. WHAT DO?', 1, 301),
+('IN THE GARAGE', 'Your bike is securely locked to the boiler.  That''s probably bad for it, but you have no key.', 1, 302),
+('AT THE BURRITO TRUCK', 'You make your way to the BURRITO TRUCK. Working at the counter is a sweet but frail old man who seems to be making an ULTIMATE BURRITO for himself. He sees he has a customer and quickly perks up. ''Hello, my friend! What can I get for you?''', 1, 401),
 ('ASKING FOR BURRITO', '''One burrito right away, my friend!'' The man proceeds to make a delicious looking burrito with all the works. It looks almost as good as the burrito the man made for himself! ''Alright, my friend, that''ll be $5!''', 1, 402),
 ('STANDING ABOVE A DYING MAN', 'The old man quickly turns as red as a tomato. ''I TRUSTED YOU TO HAVE MONEY FOR THIS BURRITO! YOU HAVE BETRAYED ME! I AM SO MAD, I COULD....'' the old man is overwhelmed by his emotions and has a heart attack. He drops the burrito he made for you on the ground and it''s totally ruined.', 1, 403),
 ('FLEEING THE SCENE', 'You ignore the fact that the old man is dying and reach behind the counter to grab his ULTIMATE BURRITO. You eat the burrito as you flee the scene, so it doesn''t get too cold. Wow you should''ve tried eating burritos while running sooner, the burrito is somehow more delicious that way. The old man dies. ', 1, 404),
@@ -170,12 +128,20 @@ INSERT INTO `stages` (`name`, `description`, `game_id`, `id`) VALUES
 ('TRYING TO TAKE HIS BURRITO', 'You try to distract the old man. ''Is that Gary Busey across the street?'' The old man turns his head slightly, and you try to grab his burrito. As quickly as you reach for the burrito, the old man grabs your arm. ''I don''t think so, my friend.'' You try to struggle out of his grip but this only makes the old man angrier. You punch his throat and the old man''s face turns blue. You broke his windpipe! The old man collapses to the ground, unable to breathe.', 1, 406),
 ('MAKING A GRAB', 'You try to distract the old man. ''Is that Gary Busey across the street?'' The old man turns his head slightly, and you try to grab his burrito. As quickly as you reach for the burrito, the old man grabs your arm. ''I don''t think so, my friend.'' You try to struggle out of his grip but this only makes the old man angrier. You punch his throat and the old man''s face turns blue. You broke his windpipe! The old man collapses to the ground, unable to breathe.', 1, 407),
 ('EATING A BURRITO', 'The old man hands you a delicious burrito.  It''s practically glowing and you hear a choir singing.  The clouds part and the hand of god descends to flash you a thumbs up as you bask in the glory and light of the most perfect burrito ever created.\r\n\r\nIt tastes ok.', 1, 408),
-('YOUR BUDDY''S HOUSE', 'You make your way to your buddy''s house. Her name is Wanda. (BET YOU THOUGHT THE BUDDY WAS A GUY. SEXIST. GIRLS CAN BE YOUR BUDDY TOO.) You knock on her door but there is no answer. She usually answers.', 1, 501),
+('AT YOUR BUDDY''S HOUSE', 'You make your way to your buddy''s house. Her name is Wanda. (BET YOU THOUGHT THE BUDDY WAS A GUY. SEXIST. GIRLS CAN BE YOUR BUDDY TOO.) You knock on her door but there is no answer. She usually answers.', 1, 501),
 ('INSIDE WANDA''S HOUSE', 'Wanda is passed out cold. She was at the party too! You see her PURSE on the table, as well a tiny but pointy CACTUS. You also that Wanda is holding AN ENTIRE BURRITO in her hand. She must''ve bought it last night but passed out before she could take a bite! WHAT DO?', 1, 502),
 ('TAKING WANDA''S BURRITO', 'You sneak over to Wanda''s near-lifeless body. She''s not clutching the burrito too hard. This should be easy. As you make a move for her burrito, WANDA''S EYES OPEN! You didn''t notice in her other hand was a SHARP PAIR OF SCISSORS. Before Wanda can even identify you as her friend, she plunges the scissors into your neck. You repeatedly scream at Wanda ''WHY?!'' before you bleed out with your severed jugular.', 1, 503),
 ('EN ROUTE TO SUPERMARKET', 'You come across a homeless man asking for change. Do you stop and help him or keep on going?', 1, 601),
-('HELPING A HOMELESS MAN', 'You give the man $1 from your wallet (money -=1). He thanks you graciously and says ''I''ll remember this. I swear upon my life I shall repay you.''', 1, 602),
-('NOT HELPING THE HOMELESS MAN', 'The homeless man yells at you. You feel bad.', 1, 603);
+('HELPING A HOMELESS MAN', 'You give the man $1 from your wallet. He thanks you graciously and says ''I''ll remember this. I swear upon my life I shall repay you.''', 1, 602),
+('NOT HELPING THE HOMELESS MAN', 'The homeless man yells at you. You feel bad.', 1, 603),
+('ON THE CORNER OF SUPERMARKET AND TACO BELL', 'The homeless man runs away. Finally he''s no longer here on this corner and you can concentrate on where to go for your burrito. The taco bell is kitty corner to the super market. The sign on the front of the taco bell says "ALL BURRITOS $5. AND WE''RE HIRING". Where do you want to try and get a burrito?', 1, 604),
+('GOING TO THE SUPERMARKET', 'You enter the supermarket and almost immediately trip over this shitty kid who cuts you off as you''re going for a shopping basket. Annoyed, you ignore the kid and make your way to the frozen aisle. You walk down the aisle until stumbling upon the FROZEN BURRITOS! You reach to open the freezer door when suddenly the shitty kid runs up to the door and presses his weight against it. You are prevented from opening the door. WHAT DO?', 1, 606),
+('SHOVING THE KID KID', 'You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE! Suddenly, the child''s beast of a father darts around the corner and goes straight into attack mode. You have NO DEFENSE. The father beats you to death with his bare hands. YOU DEAD.', 1, 607),
+('SHOVING THE KID', 'You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE!" Suddenly, the child''s beast of a father darts around the corner and goes straight into attack mode. You have NO DEFENSE. Just as the father is about to throw his first of many punches at your face and neck, THE BUM shows up from out of nowhere. THE BUM uses a makeshift taser made from a travel-size flashlight and aluminum foil and zaps the father to the ground. THE BUM SAVED YOUR LIFE! ''Hey stranger, I didn''t forget how you helped me back there. I didn''t know how to pay you back until this opportunity presented itself in the freezer aisle of our local supermarket. I invested that dollar you gave me in some stocks, and got a burrito when Apple skyrocketed! Here you go!'' How the bum actually got the burrito, you''re not quite sure. But hey, free burrito! YOU WIN', 1, 608),
+('SHOVING THE KID', 'You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE!" Suddenly, the child''s beast of a father darts around the corner and goes straight into attack mode. Using your quick thinking, you bust out your bottle of SUNSCREEN and squirt it all over the floor in front of the charging father. He slips hard, momentarily incapacitated. You of course use this opportunity to pull out your CACTUS and stab the father repeatedly in the neck. As the father bleeds out, a crowd forms and applauds your bravery. One woman emerges from the audience, clearly impressed by your combat skills. ''I saw what you did. I bought this burrito for myself but I think today you deserve it more. Here, take my burrito!'' She hands you her burrito, and you cry happily while starting to unwrap it. YOU WIN!', 1, 609),
+('SHOVING THE KID', 'You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE!" Suddenly, the child''s beast of a father darts around the corner and goes straight into attack mode. . Using your quick thinking, you bust out your bottle of SUNSCREEN and squirt it all over the floor in front of the charging father. He slips hard, momentarily incapacitated. You of course use this opportunity to pull out your CACTUS and stab the father repeatedly in the neck. THE BUM appears, seemingly out of nowhere, and pulls off his tearaway bum outfit to reveal a tuxedo. ''I''ve been watching you for a long time,'' he says, ''searching far and wide and someone possessing the combat skills and generosity needed to replace me as President of Burritos INC. Today I can officially resign, for I have found YOU, dear stranger. Here are the keys to the company. Also I should note that one of the perks of being president of Burritos INC is an UNLIMITED SUPPLY OF BURRITOS. Hope you are okay with that.'' ''I SURE AM!!!!'' You exclaim emphatically. YOU WIN ALL THE BURRITOS!', 1, 610),
+('INSIDE TACO BELL ', 'Yo quiero Taco Bell! This taco bell kinda sucks though and only sells one type of burrito for $5. Fortunately, you have $5. You buy the one burrito that they sell there, which happens to cost $5 AND be your favorite! YOU WIN!', 1, 701),
+('INSIDE TACO BELL', 'The cashier notices you are poor. ''Might I make a suggestion kind stranger? Taco Bell offers a WONDERFUL employment experience. With a Taco Bell paycheck, you could get AS MANY BURRITOS AS YOUR SWEET HEART DESIRES! Would you like an application?'' The cashier makes quite an impression on you, and you take the job immediately. Good news: you have an unlimited supply of burritos! Bad news: you work at Taco Bell. YOU.....WIN?', 1, 702);
 
 --
 -- Indexes for dumped tables
@@ -198,6 +164,12 @@ ALTER TABLE `game`
 -- Indexes for table `inventories`
 --
 ALTER TABLE `inventories`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `money`
+--
+ALTER TABLE `money`
   ADD UNIQUE KEY `id` (`id`);
 
 --
@@ -233,15 +205,20 @@ ALTER TABLE `game`
 ALTER TABLE `inventories`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
+-- AUTO_INCREMENT for table `money`
+--
+ALTER TABLE `money`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `player`
 --
 ALTER TABLE `player`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 --
 -- AUTO_INCREMENT for table `stages`
 --
 ALTER TABLE `stages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=604;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=703;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
