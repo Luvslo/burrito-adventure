@@ -4,7 +4,6 @@
     require_once __DIR__."/../src/Player.php";
     require_once __DIR__."/../src/Stage.php";
     require_once __DIR__."/../src/Game.php";
-    require_once __DIR__."/../src/Action.php";
     require_once __DIR__."/../src/Money.php";
 
     $app = new Silex\Application();
