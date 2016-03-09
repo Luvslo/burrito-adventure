@@ -1,16 +1,29 @@
 
-    <form action="/stage/607" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
-    </form>
-    <form action="/stage/608" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH HELPING THE BUM BUT NOT BOTH ITEMS</button>
-    </form>
-    <form action="/stage/609" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH ITEMS BUT NOT HELPING THE BUM</button>
-    </form>
+{% if state == 153 or state == 162 or state == 163 or state == 154 %}
     <form action="/stage/610" method="get">
         <button type="submit" class="btn btn-info">SHOVE KID WITH SUNSCREEN, CACTUS, AND HELPING THE BUM</button>
     </form>
+
+{% elseif state == 54 or state == 55 or state == 64 or state == 63 %}
+
+    <form action="/stage/609" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID WITH ITEMS BUT NOT HELPING THE BUM</button>
+    </form>
+
+{% elseif state == 1 or state == 0 or state == 9 or state == 10 %}
+
+    <form action="/stage/607" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
+    </form>
+
+{% elseif state == 99 or state == 100 or state == 108 or state == 109 %}
+
+    <form action="/stage/608" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID WITH HELPING THE BUM BUT WITHOUT BOTH ITEMS</button>
+    </form>
+
+{% endif %}
+
     <form action="/stage/604" method="get">
         <button type="submit" class="btn btn-info">LEAVE SUPERMARKET</button>
     </form>
