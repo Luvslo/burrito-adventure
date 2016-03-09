@@ -1,3 +1,5 @@
+FIX NAME THING AT BEGINNING
+STAGE 107
 if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out expectantly. But you don't have enough money!  Your inventory contains {#inventory[0]}")
     if PHONE DELIVERY & NO MONEY & no FROZEN BURRITO => YOU DEAD
     if PHONE DELIVERY & NO MONEY & have FROZEN BURRITO => "The delivery man, who's had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death."
@@ -5,38 +7,4 @@ if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out e
 
 !!! DEATH function GOES IN THE STAGE CLASS !!!
 
-
-
-
-//NEEDS UPDATING (HELPING HIM TOO)
-16. DON'T HELP HIM
-description: "The homeless man yells at you. You feel bad."
-send on to 17
-
-17. ON THE CORNER OF SUPERMARKET AND TACO BELL
-description: "The homeless man runs away. Finally he's no longer here on this corner and you can concentrate on where to go for your burrito. The taco bell is kitty corner to the super market. The sign on the front of the taco bell says "ALL BURRITOS $5. AND WE'RE HIRING". Where do you want to try and get a burrito?"
-option1: Go to taco bell
-option2: Go to supermarket
-
-18. GO INSIDE TACO BELL WITH $5
-description: "Yo quiero Taco Bell! This taco bell kinda sucks though and only sells one type of burrito for $5. Fortunately, you have $5. You buy the one burrito that they sell there, which happens to cost $5 AND be your favorite! YOU WIN!"
-
-19. GO INSIDE TACO BELL WITHOUT $5
-description: "The cashier notices you are poor. 'Might I make a suggestion kind stranger? Taco Bell offers a WONDERFUL employment experience. With a Taco Bell paycheck, you could get AS MANY BURRITOS AS YOUR SWEET HEART DESIRES! Would you like an application?' The cashier makes quite an impression on you, and you take the job immediately. Good news: you have an unlimited supply of burritos! Bad news: you work at Taco Bell. YOU.....WIN?"
-
-20. GO TO SUPERMARKET
-description: "You enter the supermarket and almost immediately trip over this shitty kid who cuts you off as you're going for a shopping basket. Annoyed, you ignore the kid and make your way to the frozen aisle. You walk down the aisle until stumbling upon the FROZEN BURRITOS! You reach to open the freezer door when suddenly the shitty kid runs up to the door and presses his weight against it. You are prevented from opening the door. WHAT DO?"
-option1: Shove kid
-option2: Leave supermarket
-
-21. SHOVE KID WITHOUT SUNSCREEN CACTUS COMBO NOR HELPING THE BUM
-description: "You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE! Suddenly, the child's beast of a father darts around the corner and goes straight into attack mode. You have NO DEFENSE. The father beats you to death with his bare hands. YOU DEAD.
-
-22. SHOVE KID WITH HELPING THE BUM BUT NOT BOTH ITEMS
-description: "You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE!" Suddenly, the child's beast of a father darts around the corner and goes straight into attack mode. You have NO DEFENSE. Just as the father is about to throw his first of many punches at your face and neck, THE BUM shows up from out of nowhere. THE BUM uses a makeshift taser made from a travel-size flashlight and aluminum foil and zaps the father to the ground. THE BUM SAVED YOUR LIFE! 'Hey stranger, I didn't forget how you helped me back there. I didn't know how to pay you back until this opportunity presented itself in the freezer aisle of our local supermarket. I invested that dollar you gave me in some stocks, and got a burrito when Apple skyrocketed! Here you go!' How the bum actually got the burrito, you're not quite sure. But hey, free burrito! YOU WIN"
-
-23. SHOVE KID WITH ITEMS BUT NOT HELPING THE BUM
-description: "You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE!" Suddenly, the child's beast of a father darts around the corner and goes straight into attack mode. Using your quick thinking, you bust out your bottle of SUNSCREEN and squirt it all over the floor in front of the charging father. He slips hard, momentarily incapacitated. You of course use this opportunity to pull out your CACTUS and stab the father repeatedly in the neck. As the father bleeds out, a crowd forms and applauds your bravery. One woman emerges from the audience, clearly impressed by your combat skills. 'I saw what you did. I bought this burrito for myself but I think today you deserve it more. Here, take my burrito!' She hands you her burrito, and you cry happily while starting to unwrap it. YOU WIN!"
-
-24. SHOVE KID WITH SUNSCREEN, CACTUS, AND HELPING THE BUM
-description: "You shove the kid out of your way so you can get to the frozen burritos. The kid falls to his knees and immediately screams bloody murder: "DAD!!!! HELP!!!! THIS PERSON JUST SHOVED IN THE FREEZER AISLE AND I THINK I BRUISED MY KNEE!" Suddenly, the child's beast of a father darts around the corner and goes straight into attack mode. . Using your quick thinking, you bust out your bottle of SUNSCREEN and squirt it all over the floor in front of the charging father. He slips hard, momentarily incapacitated. You of course use this opportunity to pull out your CACTUS and stab the father repeatedly in the neck. THE BUM appears, seemingly out of nowhere, and pulls off his tearaway bum outfit to reveal a tuxedo. 'I've been watching you for a long time,' he says, 'searching far and wide and someone possessing the combat skills and generosity needed to replace me as President of Burritos INC. Today I can officially resign, for I have found YOU, dear stranger. Here are the keys to the company. Also I should note that one of the perks of being president of Burritos INC is an UNLIMITED SUPPLY OF BURRITOS. Hope you are okay with that.' 'I SURE AM!!!!' You exclaim emphatically. YOU WIN ALL THE BURRITOS!"
+//LOOT PURSE NEEDS MONEY ADDED
