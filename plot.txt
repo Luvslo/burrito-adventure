@@ -1,4 +1,4 @@
-1. You wake up.  You're hung over, famished. It must've been a great party last night.  Your room is filthy.  You get the sense that if you don't eat a burrito in the next hour, you will die. You look in your wallet and find that you only have $1.  WHAT DO?
+1. You wake up.  You're hung over, famished. It must've been a great party last night.  Your room is filthy.  You get the sense that if you don't eat a burrito very soon, you will die. You look in your wallet and find that you only have $1.  WHAT DO?
 choice1 = CLEAN
 choice2 = GO TO KITCHEN
 
@@ -6,7 +6,7 @@ if CLEAN => find $1 (money += 1)
 if KITCHEN => current_stage = KITCHEN
 
 2. KITCHEN
-description "You walk into the kitchen.  The sun is extremely bright.   You shield your hungover eyes.  Inside the kitchen you have a FRIDGE.  KEYS, PHONE, and SUNSCREEN are sitting on the counter.  You can enter the GARAGE or LEAVE the house.  WHAT DO?"
+description: "You walk into the kitchen.  The sun is extremely bright.   You shield your hungover eyes.  Inside the kitchen you have a FRIDGE.  KEYS, PHONE, and SUNSCREEN are sitting on the counter.  You can enter the GARAGE or LEAVE the house.  WHAT DO?"
 get SUNSCREEN in_inventory to TRUE
 get KEYS in_inventory to TRUE
 get PHONE (can call delivery)
@@ -51,7 +51,6 @@ Option3: Go to buddy's house
 Option4: Go back home.
 
 7. BURRITO TRUCK->ASK FOR A BURRITO
-402
 description: "'One burrito right away, my friend!' The man proceeds to make a delicious looking burrito with all the works. It looks almost as good as the burrito the man made for himself! 'Alright, my friend, that'll be $5"
 IF HAVE $5, get burrito. YOU WIN!
 IF NO HAVE $5 "The old man quickly turns as red as a tomato. 'I TRUSTED YOU TO HAVE MONEY FOR THIS BURRITO! YOU HAVE BETRAYED ME! I AM SO MAD, I COULD....' the old man is overwhelmed by his emotions and has a heart attack. He drops the burrito he made for you on the ground and it's totally ruined."
@@ -59,11 +58,9 @@ Option1: Call an ambulance.
 Option2: Take his burrito and run.
 
 8. CALL AMBULANCE
-405
 description: "You call an ambulance from the burrito truck's phone. The ambulance arrives, but unfortunately the driver was at the same party as you last night and had a little too much to drink as well! As he approaches the burrito truck, his foot accidentally slams the gas instead of breaks. He plows into you and the burrito truck at a very high velocity. Everyone just died! YOU DEAD"
 
-9. TAKE OLD MAN'S BURRITO WHILE HE'S DYING
-404
+9. TAKE OLD MAN'S BURRITO
 description: "You ignore the fact that the old man is dying and reach behind the counter to grab his ULTIMATE BURRITO. You eat the burrito as you flee the scene, so it doesn't get too cold. Wow you should've tried eating burritos while running sooner, the burrito is somehow more delicious that way. The old man dies. YOU WIN!!!!"
 
 10. BURRITO TRUCK-> TRY TO TAKE HIS BURRITO

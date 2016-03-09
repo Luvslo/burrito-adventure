@@ -65,6 +65,8 @@
         //remove ability to click clean room again
         $player = Player::getAll();
         $stage = Stage::find(101);
+        $money = new Money();
+        $money->setValue(2);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
