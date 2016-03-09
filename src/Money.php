@@ -17,5 +17,10 @@
         {
             return $this->value;
         }
+
+        function addMoney($added_value)
+        {
+            return $this->value += $added_value;
+        }
     }
  ?>
