@@ -17,8 +17,8 @@
         function test_addMoney()
         {
             $money = new Money();
-            $money->addMoney(2);
+            $money->addMoney(5);
 
-            $this->assertEquals(3, $money->getValue());
+            $this->assertEquals(6, $money->getValue());
         }
     }
