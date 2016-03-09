@@ -32,6 +32,7 @@
     $app->post("/landing_page", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
+        Inventory::reset();
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
         $stage = Stage::find(101);
@@ -77,7 +78,7 @@
         $player = Player::getAll();
         $stage = Stage::find(101);
         $money = Money::getAll();
-        $money->addMoney(1);
+        $money->addMoney(2);
         $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
@@ -99,7 +100,7 @@
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
 
-        $state = 153;
+        $state = 0;
         if (array_search('keys', array_column($inventories, 'name')) )
         {
             $state = $state + 1;
@@ -116,7 +117,6 @@
         if (array_search('bumhelp', array_column($inventories, 'name'))) {
             $state = $state + 99;
         }
-        var_dump($state);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -277,9 +277,12 @@
         $bumhelp = Inventory::find(5);
         $bumhelp->putInInventory('bumhelp');
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
+        $money->subtractMoney(1);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
+            'money' => $money->getValue(),
             'stage' => $stage,
             'inventories' => $inventories,
             'message' => array(
@@ -317,6 +320,7 @@
         $stage = Stage::find(502);
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $money->addMoney(8);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),

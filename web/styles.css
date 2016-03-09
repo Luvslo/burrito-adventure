@@ -1,3 +1,8 @@
 game_column {
     padding: 15px;
 }
+
+inventory {
+    border: 2px solid black;
+    border-radius: 5px;
+}
