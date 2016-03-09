@@ -115,7 +115,6 @@
                 $has_bumhelp = 1;
             }
         }
-        var_dump($stage);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
