@@ -104,12 +104,7 @@
                 }
                 return $found_inventory;
             }
-
-            static function reset()
-            {
-                $GLOBALS['DB']->exec("UPDATE inventories SET in_inventory = 0;");
-            }
-
+            
             static function deleteAll()
             {
                 $GLOBALS['DB']->exec("DELETE FROM inventories;");
@@ -132,6 +127,11 @@
                    }
                }
                return $found_items;
+           }
+
+           static function reset()
+           {
+               $GLOBALS['DB']->exec("UPDATE inventories SET in_inventory = 0;");
            }
         }
 ?>

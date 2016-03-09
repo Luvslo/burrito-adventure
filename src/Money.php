@@ -34,6 +34,15 @@
             return $new_value;
         }
 
+        function subtractMoney($sub_value)
+        {
+            $value = $this->getValue();
+            $new_value = $value - $sub_value;
+            $GLOBALS['DB']->exec("UPDATE money SET value = {$new_value};");
+            $this->setValue($new_value);
+            return $new_value;
+        }
+
         static function getAll()
         {
             $new_money = null;

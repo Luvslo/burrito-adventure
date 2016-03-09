@@ -21,4 +21,14 @@
 
             $this->assertEquals(6, $money->getValue());
         }
+
+        function test_getMoney()
+        {
+            $money = new Money();
+            $money->addMoney(5);
+
+            $result = 6
+
+            $this->assertEquals(6, $money->getValue());
+        }
     }

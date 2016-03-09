@@ -30,6 +30,11 @@
     });
 
     $app->post("/landing_page", function() use ($app) {
+<<<<<<< HEAD
+=======
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+>>>>>>> b289b4085061b0d85a07b0522d54e80b8b8e9e25
         Inventory::reset();
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
@@ -71,7 +76,7 @@
         $player = Player::getAll();
         $stage = Stage::find(101);
         $money = Money::getAll();
-        $money->addMoney(1);
+        $money->addMoney(2);
         $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
@@ -91,6 +96,8 @@
         $player = Player::getAll();
         $inventory = Inventory::getAll();
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
+
         $has_keys = 0;
         $has_frozen_burrito = 0;
         $has_cactus = 0;
@@ -114,7 +121,6 @@
                 $has_bumhelp = 1;
             }
         }
-        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -280,6 +286,8 @@
         $bumhelp = Inventory::find(5);
         $bumhelp->putInInventory('bumhelp');
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
+        $money->subtractMoney(1);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -321,6 +329,7 @@
         $stage = Stage::find(502);
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $money->addMoney(8);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
