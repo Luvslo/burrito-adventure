@@ -1,0 +1,8 @@
+{% if inventories is not empty %}
+    {% for inventory in inventories %}
+        <h3>{{ inventory.getName }}</h3>
+        <p>{{ inventory.getDescription }}</p>
+    {% endfor %}
+{% else %}
+    <p>nothing :(</p>
+{% endif %}

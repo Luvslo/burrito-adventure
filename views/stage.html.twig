@@ -4,7 +4,7 @@
         {% include '/includes/head.html.twig' %}
     </head>
     <body>
-        <div class="container">
+        <div class="col-md-8 game_column">
             {% include '/includes/message.html.twig' %}
 
             <h1>Hi, {{ player.getName }}!</h1>
@@ -13,8 +13,12 @@
                 {{description}}
             </p>
 
-                {% include '/stages/' ~ stage.getId ~ '.html.twig' %}
-
+            {% include '/stages/' ~ stage.getId ~ '.html.twig' %}
         </div>
+        <div class="col-md-4 inventory_column">
+            {% include '/includes/inventory.html.twig' %}
+        </div>
+
+
     </body>
 </html>

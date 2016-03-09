@@ -35,13 +35,14 @@
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
         $stage = Stage::find(101);
-
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'message' => array(
-            )
+            ),
+            'inventories' => $inventories
         ));
     });
 
@@ -50,6 +51,7 @@
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(101);
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -70,10 +72,12 @@
         $stage = Stage::find(101);
         $money = new Money();
         $money->addMoney(2);
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You cleaned your room, and found $5! SWEET!'
@@ -85,10 +89,12 @@
         $stage = Stage::find($id);
         $player = Player::getAll();
         $inventory = Inventory::getAll();
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'inventory' => $inventory,
             'message' => array(
             )
@@ -102,10 +108,12 @@
         $stage = Stage::find(102);
         $sunscreen = Inventory::find(4);
         $sunscreen->putInInventory('sunscreen');
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You grabbed the sunscreen! Way to be health-conscious!'
@@ -120,10 +128,12 @@
         $stage = Stage::find(102);
         $keys = Inventory::find(1);
         $keys->putInInventory('keys');
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You grabbed the keys! Hopefully they will come in handy!'
@@ -138,10 +148,12 @@
         $stage = Stage::find(102);
         $phone = Inventory::find(12);
         $phone->putInInventory('phone');
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You grabbed the phone! Maybe you can use it later to call some peeps.'
@@ -156,10 +168,12 @@
         $stage = Stage::find(103);
         $frozen_burrito = Inventory::find(2);
         $frozen_burrito->putInInventory('frozen burrito');
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You took the frozen burrito!'
@@ -189,10 +203,12 @@
     $app->get("/ask_for_burrito", function() use ($app) {
         $player = Player::getAll();
         $stage = Stage::find(401);
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
 
             )
@@ -202,10 +218,12 @@
     $app->post("/take_man_burrito", function() use ($app) {
         $player = Player::getAll();
         $stage = Stage::find(401);
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
 
             )
@@ -219,10 +237,12 @@
         $stage = Stage::find(502);
         $cactus = Inventory::find(3);
         $cactus->putInInventory('cactus');
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You grabbed the cactus! Maybe it will come in handy later!'
@@ -235,11 +255,12 @@
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(502);
-
+        $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
                 'text' => 'You grabbed the phone! Maybe you can use it later to call some peeps.'

@@ -150,7 +150,8 @@
             $test_inventory3 = new Inventory($name3, $description3, $game_id, $in_inventory3, $id);
             $test_inventory3->save();
 
-            $this->assertEquals([$test_inventory, $test_inventory2], Inventory::isInInventory());
+            $current_inventory = Inventory::getAll();
+            $this->asserEquals([$test_inventory, $test_inventory2], $current_inventory->isInInventory());
         }
 
     }
