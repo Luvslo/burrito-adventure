@@ -23,6 +23,7 @@
     ));
 
     $app->get("/", function() use ($app) {
+        Player::deleteAll();
         return $app['twig']->render('index.html.twig', array(
             'form' => true,
         ));
@@ -34,6 +35,7 @@
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
         $stage = Stage::find(101);
+
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
@@ -67,7 +69,7 @@
         $player = Player::getAll();
         $stage = Stage::find(101);
         $money = new Money();
-        $money->setValue(2);
+        $money->addMoney(2);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -147,11 +149,13 @@
         ));
     });
 //103
-    $app->post("/take_burrito", function() use ($app) {
+    $app->post("/take_frozen_burrito", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(103);
+        $frozen_burrito = Inventory::find(2);
+        $frozen_burrito->putInInventory('frozen burrito');
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -195,7 +199,7 @@
         ));
     });
 
-    $app->post("/take_burrito", function() use ($app) {
+    $app->post("/take_man_burrito", function() use ($app) {
         $player = Player::getAll();
         $stage = Stage::find(401);
         return $app['twig']->render('stage.html.twig', array(

@@ -1,4 +1,0 @@
-FIX NAME THING AT BEGINNING
-
-STAGE 107
-if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out expectantly. But you don't have enough money!  Your inventory contains {#inventory[0]}")
