@@ -5,6 +5,7 @@
     require_once __DIR__."/../src/Stage.php";
     require_once __DIR__."/../src/Game.php";
     require_once __DIR__."/../src/Action.php";
+    require_once __DIR__."/../src/Money.php";
 
     $app = new Silex\Application();
 
@@ -230,7 +231,7 @@
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(502);
-        //insert add money function
+
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
