@@ -92,6 +92,19 @@
                 return $inventories;
             }
 
+            static function find($search_id)
+            {
+                $inventories = Inventory::getAll();
+                $found_inventory = null;
+
+                foreach ($inventories as $inventory)
+                if (($inventory->getId()) == $search_id)
+                {
+                    $found_inventory = $inventory;
+                }
+                return $found_inventory;
+            }
+
             static function reset()
             {
                 $GLOBALS['DB']->exec("UPDATE inventories SET in_inventory = 0;");
