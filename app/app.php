@@ -100,31 +100,41 @@
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
 
-        $state = 0;
-        if (array_search('keys', array_column($inventories, 'name')) )
-        {
-            $state = $state + 1;
-        }
-        if (array_search('frozen burrito', array_column($inventories, 'name'))) {
-            $state = $state + 9;
-        }
-        if (array_search('cactus', array_column($inventories, 'name'))) {
-            $state = $state + 17;
-        }
-        if (array_search('sunscreen', array_column($inventories, 'name'))) {
-            $state = $state + 37;
-        }
-        if (array_search('bumhelp', array_column($inventories, 'name'))) {
-            $state = $state + 99;
+        $has_keys = 0;
+        $has_frozen_burrito = 0;
+        $has_cactus = 0;
+        $has_sunscreen = 0;
+        $has_bumhelp = 0;
+        foreach ($inventories as $item){
+            if ($item->getName() == 'keys')
+            {
+                $has_keys = 1;
+            }
+            elseif ($item->getName() == 'frozen burrito') {
+                $has_frozen_burrito = 1;
+            }
+            elseif ($item->getName() == 'cactus') {
+                $has_cactus = 1;
+            }
+            elseif ($item->getName() == 'sunscreen') {
+                $has_sunscreen = 1;
+            }
+            elseif ($item->getName() == 'bumhelp') {
+                $has_bumhelp = 1;
+            }
         }
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'has_keys' => $has_keys,
+            'has_frozen_burrito' => $has_frozen_burrito,
+            'has_cactus' => $has_cactus,
+            'has_sunscreen' => $has_sunscreen,
+            'has_bumhelp' => $has_bumhelp,
             'money' => $money->getValue(),
             'inventories' => $inventories,
             'inventory' => $inventory,
-            'state' => $state,
             'message' => array(
             )
         ));

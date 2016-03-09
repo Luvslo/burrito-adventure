@@ -1,22 +1,34 @@
 
-{% if state == 153 or state == 162 or state == 163 or state == 154 %}
+{% if has_sunscreen == 1 and has_cactus == 1 and has_bumhelp == 1 %}
     <form action="/stage/610" method="get">
         <button type="submit" class="btn btn-info">SHOVE KID WITH SUNSCREEN, CACTUS, AND HELPING THE BUM</button>
     </form>
 
-{% elseif state == 54 or state == 55 or state == 64 or state == 63 %}
+{% elseif has_sunscreen == 1 and has_cactus == 1 and has_bumhelp == 0 %}
 
     <form action="/stage/609" method="get">
         <button type="submit" class="btn btn-info">SHOVE KID WITH ITEMS BUT NOT HELPING THE BUM</button>
     </form>
 
-{% elseif state == 1 or state == 0 or state == 9 or state == 10 %}
+{% elseif has_sunscreen == 0 and has_cactus == 0 and has_bumhelp == 0 %}
 
     <form action="/stage/607" method="get">
         <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
     </form>
 
-{% elseif state == 99 or state == 100 or state == 108 or state == 109 %}
+{% elseif has_sunscreen == 1 and has_cactus == 0 and has_bumhelp == 0 %}
+
+    <form action="/stage/607" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
+    </form>
+
+{% elseif has_sunscreen == 0 and has_cactus == 1 and has_bumhelp == 0 %}
+
+    <form action="/stage/607" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
+    </form>
+
+{% elseif has_sunscreen == 0 and has_cactus == 0 and has_bumhelp == 1 %}
 
     <form action="/stage/608" method="get">
         <button type="submit" class="btn btn-info">SHOVE KID WITH HELPING THE BUM BUT WITHOUT BOTH ITEMS</button>
