@@ -36,10 +36,13 @@
         $player->save();
         $stage = Stage::find(101);
         $inventories = Inventory::isInInventory();
+        Money::reset();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'message' => array(
             ),
             'inventories' => $inventories
@@ -52,10 +55,13 @@
         $player = Player::getAll();
         $stage = Stage::find(101);
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventories' => $inventories,
+            'money' => $money->getValue(),
             'message' => array(
                 'type' => 'info',
                 'text' => 'You hit the snooze for another 9 minutes.'
@@ -70,17 +76,18 @@
         //remove ability to click clean room again
         $player = Player::getAll();
         $stage = Stage::find(101);
-        $money = new Money();
-        $money->addMoney(2);
+        $money = Money::getAll();
+        $money->addMoney(1);
         $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'inventories' => $inventories,
+            'money' => $money->getValue(),
             'message' => array(
                 'type' => 'info',
-                'text' => 'You cleaned your room, and found $5! SWEET!'
+                'text' => 'You cleaned your room, and found $1! SWEET!'
             )
         ));
     });
@@ -90,10 +97,12 @@
         $player = Player::getAll();
         $inventory = Inventory::getAll();
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'inventory' => $inventory,
             'message' => array(
@@ -109,10 +118,12 @@
         $sunscreen = Inventory::find(4);
         $sunscreen->putInInventory('sunscreen');
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
@@ -128,11 +139,13 @@
         $stage = Stage::find(102);
         $keys = Inventory::find(1);
         $keys->putInInventory('keys');
+        $money = Money::getAll();
         $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
@@ -149,10 +162,12 @@
         $phone = Inventory::find(12);
         $phone->putInInventory('phone');
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
@@ -169,10 +184,12 @@
         $frozen_burrito = Inventory::find(2);
         $frozen_burrito->putInInventory('frozen burrito');
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
@@ -204,10 +221,12 @@
         $player = Player::getAll();
         $stage = Stage::find(401);
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
 
@@ -219,10 +238,12 @@
         $player = Player::getAll();
         $stage = Stage::find(401);
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
 
@@ -238,10 +259,12 @@
         $cactus = Inventory::find(3);
         $cactus->putInInventory('cactus');
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
@@ -256,10 +279,12 @@
         $player = Player::getAll();
         $stage = Stage::find(502);
         $inventories = Inventory::isInInventory();
+        $money = Money::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
                 'type' => 'info',
