@@ -1,19 +1,29 @@
 {% if has_frozen_burrito == 0 and money < 10 %}
 
     <form action="/stage/108" method="get">
-        <button type="submit" class="btn btn-info">Call and Order A Burrito NO MONEY NO FROZEN BURRITO</button>
+        <button type="submit" class="btn btn-info">Call and Order A Burrito</button>
     </form>
 
 {% elseif has_frozen_burrito == 1 and money < 10 %}
 
     <form action="/stage/109" method="get">
-        <button type="submit" class="btn btn-info">Call and Order A Burrito NO MONEY YES FROZEN BURRITO</button>
+        <button type="submit" class="btn btn-info">Call and Order A Burrito</button>
     </form>
 
 {% elseif has_frozen_burrito == 1 and money >= 10 %}
 
     <form action="/stage/110" method="get">
-        <button type="submit" class="btn btn-info">Call and Order A Burrito YES MONEY YES FROZEN BURRITO</button>
+        <button type="submit" class="btn btn-info">Call and Order A Burrito</button>
+    </form>
+
+{% elseif has_frozen_burrito == 0 and money >= 10 %}
+
+    <form action="/stage/110" method="get">
+        <button type="submit" class="btn btn-info">Call and Order A Burrito</button>
     </form>
 
 {% endif %}
+
+<form action="/stage/102" method="get">
+    <button type="submit" class="btn btn-info">HANG UP THE PHONE</button>
+</form>

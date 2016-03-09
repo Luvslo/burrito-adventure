@@ -1,49 +1,49 @@
 
 {% if has_sunscreen == 1 and has_cactus == 1 and has_bumhelp == 1 %}
     <form action="/stage/610" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH SUNSCREEN, CACTUS, AND HELPING THE BUM</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 1 and has_cactus == 1 and has_bumhelp == 0 %}
 
     <form action="/stage/609" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH BOTH ITEMS BUT NOT HELPING THE BUM</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 0 and has_bumhelp == 0 %}
 
     <form action="/stage/607" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 1 and has_cactus == 0 and has_bumhelp == 0 %}
 
     <form action="/stage/607" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID with sunscreen, without cactus, NOT helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 1 and has_cactus == 0 and has_bumhelp == 1 %}
 
     <form action="/stage/608" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH sunscreen, WITHOUT cactus, WITH helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 1 and has_bumhelp == 1 %}
 
     <form action="/stage/608" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH sunscreen, WITHOUT cactus, WITH helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 1 and has_bumhelp == 0 %}
 
     <form action="/stage/607" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen, WITH cactus, WITHOUT helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 0 and has_bumhelp == 1 %}
 
     <form action="/stage/608" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH HELPING THE BUM BUT WITHOUT BOTH ITEMS</button>
+        <button type="submit" class="btn btn-info">SHOVE KID</button>
     </form>
 
 {% endif %}
