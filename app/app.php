@@ -30,8 +30,7 @@
     });
 
     $app->post("/landing_page", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
+        Inventory::reset();
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
         $stage = Stage::find(101);
@@ -50,8 +49,6 @@
     });
 
     $app->post("/snooze", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(101);
         $inventories = Inventory::isInInventory();
@@ -70,9 +67,6 @@
     });
 //add find money to clean room
     $app->post("/clean_room", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
-
         //remove ability to click clean room again
         $player = Player::getAll();
         $stage = Stage::find(101);
@@ -121,7 +115,6 @@
             }
         }
         $money = Money::getAll();
-        var_dump($inventories);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -282,6 +275,7 @@
 
     $app->post("/help_bum", function() use ($app) {
         $player = Player::getAll();
+        $money = Money::getAll();
         $stage = Stage::find(602);
         $bumhelp = Inventory::find(5);
         $bumhelp->putInInventory('bumhelp');
@@ -289,6 +283,7 @@
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
+            'money' => $money->getValue(),
             'stage' => $stage,
             'inventories' => $inventories,
             'message' => array(

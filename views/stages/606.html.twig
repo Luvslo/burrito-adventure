@@ -7,7 +7,7 @@
 {% elseif has_sunscreen == 1 and has_cactus == 1 and has_bumhelp == 0 %}
 
     <form action="/stage/609" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID WITH ITEMS BUT NOT HELPING THE BUM</button>
+        <button type="submit" class="btn btn-info">SHOVE KID WITH BOTH ITEMS BUT NOT HELPING THE BUM</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 0 and has_bumhelp == 0 %}
@@ -19,13 +19,25 @@
 {% elseif has_sunscreen == 1 and has_cactus == 0 and has_bumhelp == 0 %}
 
     <form action="/stage/607" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID with sunscreen, without cactus, NOT helping bum</button>
+    </form>
+
+{% elseif has_sunscreen == 1 and has_cactus == 0 and has_bumhelp == 1 %}
+
+    <form action="/stage/608" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID WITH sunscreen, WITHOUT cactus, WITH helping bum</button>
+    </form>
+
+{% elseif has_sunscreen == 0 and has_cactus == 1 and has_bumhelp == 1 %}
+
+    <form action="/stage/608" method="get">
+        <button type="submit" class="btn btn-info">SHOVE KID WITH sunscreen, WITHOUT cactus, WITH helping bum</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 1 and has_bumhelp == 0 %}
 
     <form action="/stage/607" method="get">
-        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen cactus combo nor helping bum</button>
+        <button type="submit" class="btn btn-info">SHOVE KID without sunscreen, WITH cactus, WITHOUT helping bum</button>
     </form>
 
 {% elseif has_sunscreen == 0 and has_cactus == 0 and has_bumhelp == 1 %}
