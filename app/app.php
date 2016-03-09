@@ -90,12 +90,31 @@
         $player = Player::getAll();
         $inventory = Inventory::getAll();
         $inventories = Inventory::isInInventory();
+        $state = 153;
+        if (array_search('keys', array_column($inventories, 'name')) )
+        {
+            $state = $state + 1;
+        }
+        if (array_search('frozen burrito', array_column($inventories, 'name'))) {
+            $state = $state + 9;
+        }
+        if (array_search('cactus', array_column($inventories, 'name'))) {
+            $state = $state + 17;
+        }
+        if (array_search('sunscreen', array_column($inventories, 'name'))) {
+            $state = $state + 37;
+        }
+        if (array_search('bumhelp', array_column($inventories, 'name'))) {
+            $state = $state + 99;
+        }
+        var_dump($state);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'inventories' => $inventories,
             'inventory' => $inventory,
+            'state' => $state,
             'message' => array(
             )
         ));
@@ -218,6 +237,23 @@
     $app->post("/take_man_burrito", function() use ($app) {
         $player = Player::getAll();
         $stage = Stage::find(401);
+        $inventories = Inventory::isInInventory();
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+            'inventories' => $inventories,
+            'message' => array(
+
+            )
+        ));
+    });
+
+    $app->post("/help_bum", function() use ($app) {
+        $player = Player::getAll();
+        $stage = Stage::find(602);
+        $bumhelp = Inventory::find(5);
+        $bumhelp->putInInventory('bumhelp');
         $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
