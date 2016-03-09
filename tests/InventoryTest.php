@@ -128,5 +128,30 @@
             $this->assertEquals(1, $current_inventory[0]->getInInventory());
         }
 
+        function test_isInInventory()
+        {
+            $name = "Frozen Burrito";
+            $description = "This frozen burrito looks super questionable. It's probably been frozen for a long time, and is as hard as a rock. Is that mold I see?";
+            $id = null;
+            $game_id = 1;
+            $in_inventory = 1;
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory->save();
+
+            $name2 = "Cash money";
+            $description2 = "This is money. It can be used in exchange for goods and services.";
+            $in_inventory2 = 1;
+            $test_inventory2 = new Inventory($name2, $description2, $game_id, $in_inventory2, $id);
+            $test_inventory2->save();
+
+            $name3 = "Keys";
+            $description3 = "keys";
+            $in_inventory3 = 0;
+            $test_inventory3 = new Inventory($name3, $description3, $game_id, $in_inventory3, $id);
+            $test_inventory3->save();
+
+            $this->assertEquals([$test_inventory, $test_inventory2], Inventory::isInInventory());
+        }
+
     }
  ?>

@@ -107,5 +107,21 @@
                 $GLOBALS['DB']->exec("UPDATE inventories SET in_inventory = 1 WHERE name = '{$name}';");
             }
 
+            static function isInInventory()
+            {
+                $returned_inventories = $GLOBALS['DB']->query("SELECT * FROM inventories WHERE in_inventory = 1;");
+                $inventory = array();
+
+                foreach ($returned_inventories as $inventory) {
+                    $name = $inventory['name'];
+                    $description = $inventory['description'];
+                    $game_id = $inventory['game_id'];
+                    $in_inventory = $inventory['in_inventory'];
+                    $id = $inventory['id'];
+                    $new_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+                    array_push($inventory, $new_inventory);
+                }
+                return $inventory;
+            }
         }
 ?>
