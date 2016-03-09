@@ -1,9 +1,6 @@
-
+{% if money > 5 %}
     <form action="/stage/701" method="get">
-        <button type="submit" class="btn btn-info">GO TO TACO BELL WITH $5</button>
-    </form>
-    <form action="/stage/702" method="get">
-        <button type="submit" class="btn btn-info">GO TO TACO BELL WITHOUT $5</button>
+        <button type="submit" class="btn btn-info">GO TO TACO BELL</button>
     </form>
     <form action="/stage/606" method="get">
         <button type="submit" class="btn btn-info">GO TO SUPERMARKET</button>
@@ -11,3 +8,14 @@
     <form action="/stage/102" method="get">
         <button type="submit" class="btn btn-info">GO HOME</button>
     </form>
+{% else %}
+    <form action="/stage/702" method="get">
+        <button type="submit" class="btn btn-info">GO TO TACO BELL</button>
+    </form>
+    <form action="/stage/606" method="get">
+        <button type="submit" class="btn btn-info">GO TO SUPERMARKET</button>
+    </form>
+    <form action="/stage/102" method="get">
+        <button type="submit" class="btn btn-info">GO HOME</button>
+    </form>
+{% endif %}
