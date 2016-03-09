@@ -1,10 +1,4 @@
 FIX NAME THING AT BEGINNING
+
 STAGE 107
 if USE PHONE => ("You phone for delivery.  The delivery man holds his hand out expectantly. But you don't have enough money!  Your inventory contains {#inventory[0]}")
-    if PHONE DELIVERY & NO MONEY & no FROZEN BURRITO => YOU DEAD
-    if PHONE DELIVERY & NO MONEY & have FROZEN BURRITO => "The delivery man, who's had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death."
-    if PHONE DELIVERY & HAVE MONEY => "You are delivered the most supreme burrito, a LEVEL 5. CONGRATS"
-
-!!! DEATH function GOES IN THE STAGE CLASS !!!
-
-//LOOT PURSE NEEDS MONEY ADDED
