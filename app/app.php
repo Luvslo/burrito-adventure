@@ -5,6 +5,7 @@
     require_once __DIR__."/../src/Stage.php";
     require_once __DIR__."/../src/Game.php";
     require_once __DIR__."/../src/Action.php";
+    require_once __DIR__."/../src/Money.php";
 
     $app = new Silex\Application();
 
@@ -33,7 +34,7 @@
         $player = new Player ($_POST['player_name'], 1);
         $player->save();
         $stage = Stage::find(101);
-        
+
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
@@ -58,7 +59,7 @@
             )
         ));
     });
-
+//add find money to clean room
     $app->post("/clean_room", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
@@ -82,10 +83,12 @@
     $app->get("/stage/{id}", function($id) use ($app) {
         $stage = Stage::find($id);
         $player = Player::getAll();
+        $inventory = Inventory::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'inventory' => $inventory,
             'message' => array(
             )
         ));
@@ -116,7 +119,6 @@
         $stage = Stage::find(102);
         $keys = Inventory::find(1);
         $keys->putInInventory('keys');
-
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -133,6 +135,8 @@
         //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(102);
+        $phone = Inventory::find(12);
+        $phone->putInInventory('phone');
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
@@ -207,5 +211,39 @@
         ));
     });
 
+    $app->post("/take_cactus", function() use ($app) {
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+        $player = Player::getAll();
+        $stage = Stage::find(502);
+        $cactus = Inventory::find(3);
+        $cactus->putInInventory('cactus');
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You grabbed the cactus! Maybe it will come in handy later!'
+            )
+        ));
+    });
+
+    $app->post("/loot_purse", function() use ($app) {
+        //GAME_ID IS CURRENTLY HARD CODED TO 1
+        //MIGHT NEED TO BE CHANGED?
+        $player = Player::getAll();
+        $stage = Stage::find(502);
+
+        return $app['twig']->render('stage.html.twig', array(
+            'player' => $player[0],
+            'description' => $stage->getDescription(),
+            'stage' => $stage,
+            'message' => array(
+                'type' => 'info',
+                'text' => 'You grabbed the phone! Maybe you can use it later to call some peeps.'
+            )
+        ));
+    });
     return $app;
 ?>
