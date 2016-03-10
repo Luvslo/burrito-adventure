@@ -1,3 +1,5 @@
+{% if has_bumhelp == 0 %}
+
     <form action="/help_bum" method="post">
         <button type="submit" class="btn btn-info">HELP HIM</button>
     </form>
@@ -5,6 +7,16 @@
     <form action="/stage/603" method="get">
         <button type="submit" class="btn btn-info">DON'T HELP HIM</button>
     </form>
+
+{% else %}
+
+    <form action="/stage/604" method="get">
+        <button type="submit" class="btn btn-info">OH WAIT NEVERMIND, THE BUM DISAPPEARED</button>
+    </form>
+
+{% endif %}
+
+
     <form action="/stage/102" method="get">
         <button type="submit" class="btn btn-info">GO HOME</button>
     </form>

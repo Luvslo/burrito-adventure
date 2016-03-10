@@ -106,6 +106,8 @@
         $has_cactus = 0;
         $has_sunscreen = 0;
         $has_bumhelp = 0;
+        $bumhelp = Inventory::find(5);
+        $has_bumhelp = $bumhelp->getInInventory();
         foreach ($inventories as $item){
             if ($item->getName() == 'Keys')
             {
@@ -257,14 +259,16 @@
         $money = Money::getAll();
         $stage = Stage::find(602);
         $bumhelp = Inventory::find(5);
-        $bumhelp->putInInventory('bumhelp');
+        $bumhelp->putInInventory('Bum IOU');
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
         $money->subtractMoney(1);
+        $has_bumhelp = $bumhelp->getInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'money' => $money->getValue(),
+            'has_bumhelp' => $bumhelp,
             'stage' => $stage,
             'inventories' => $inventories,
             'message' => array(
