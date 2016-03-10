@@ -152,7 +152,6 @@
         $has_sunscreen = 1;
         $keys = Inventory::find(1);
         $has_keys = $keys->getInInventory();
-        var_dump($has_keys);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),

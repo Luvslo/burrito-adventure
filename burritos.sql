@@ -1,3 +1,21 @@
+-- phpMyAdmin SQL Dump
+-- version 4.5.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8080
+-- Generation Time: Mar 10, 2016 at 09:27 AM
+-- Server version: 5.7.10
+-- PHP Version: 5.6.16
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
 --
 -- Database: `burritos`
 --
@@ -46,12 +64,11 @@ CREATE TABLE `inventories` (
 --
 
 INSERT INTO `inventories` (`name`, `description`, `game_id`, `in_inventory`, `id`) VALUES
-('keys', 'These are your keys. One of the keys is to your bike lock', 1, 0, 1),
-('frozen burrito', 'This frozen burrito looks super questionable. It has probably been frozen for a long time, and is as hard as a rock. Is that mold I see?', 1, 0, 2),
-('cactus', 'It is a cactus. Its needles look dangerous. ', 1, 0, 3),
-('sunscreen', 'It can protect you from the sun. It is also very slippery.', 1, 0, 4),
-('bumhelp', 'You helped a bum. For some reason your inventory is remembering this. Bum magic!', 1, 0, 5),
-('phone', 'This is your phone. You can call people from it!', 1, 0, 12);
+('Keys', 'These are your keys. One of the keys is to your bike lock', 1, 0, 1),
+('Frozen Burrito', 'This frozen burrito looks super questionable. It has probably been frozen for a long time, and is as hard as a rock. Is that mold I see?', 1, 0, 2),
+('Cactus', 'It is a cactus. Its needles look dangerous. ', 1, 0, 3),
+('Sunscreen', 'It can protect you from the sun. It is also very slippery.', 1, 1, 4),
+('Bum IOU', 'You helped a bum. Bum magic!', 1, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -69,7 +86,7 @@ CREATE TABLE `money` (
 --
 
 INSERT INTO `money` (`value`, `id`) VALUES
-(3, 1);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -88,7 +105,25 @@ CREATE TABLE `player` (
 --
 
 INSERT INTO `player` (`name`, `game_id`, `id`) VALUES
-('Mary', 1, 77);
+('asdsa', 1, 114);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `snooze`
+--
+
+CREATE TABLE `snooze` (
+  `value` int(11) NOT NULL,
+  `id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `snooze`
+--
+
+INSERT INTO `snooze` (`value`, `id`) VALUES
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -108,20 +143,20 @@ CREATE TABLE `stages` (
 --
 
 INSERT INTO `stages` (`name`, `description`, `game_id`, `id`) VALUES
-('IN YOUR BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die. You only have one dollar in your wallet though... WHAT DO?', 1, 101),
+('IN YOUR BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die. You only have one dollar in your wallet though, surely not enough to purchase one whole burrito...  WHAT DO?', 1, 101),
 ('IN THE KITCHEN', 'You walk into the kitchen. The sun is extremely bright. You shield your hungover eyes. Inside the kitchen, you have a FRIDGE. KEYS, PHONE, and SUNSCREEN are sitting on the counter. You can enter the GARAGE or LEAVE the house. WHAT DO?', 1, 102),
 ('LOOKING IN THE FRIDGE', 'You see a horrific sight.  An Amy''s frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer.  It is now a lovely spectrum of green and black, and frozen completely solid.  You could probably hurt someone with this thing.', 1, 103),
 ('IN THE GARAGE', 'You walk into the garage, and see your BIKE. There''s a door for the KITCHEN and a door OUTSIDE. WHAT DO?', 1, 104),
-('OUTSIDE', 'You walk outside, and you remember there''s a delicious burrito truck only about a mile away. You also remember that your buddy lives just 2 blocks away. He sometimes has burritos! WHAT DO?', 1, 105),
+('OUTSIDE', 'You walk outside, and you remember there''s a delicious BURRITO TRUCK only about a mile away. You also remember that your BUDDY lives just 2 blocks away. He sometimes has burritos! There''s also a SUPERMARKET and TACO BELL downtown, but you don''t have enough energy to walk that far. WHAT DO?', 1, 105),
 ('EATING THE MONSTROUS BURRITO', 'Against your better judgement, you toss the burrito in your microwave and choke the putrid goo-mass down.  You immediately start vomiting and don''t stop.', 1, 106),
-('USING THE PHONE', 'You pick up your old school landline phone. Maybe you could order a burrito!', 1, 107),
-('FACING THE DELIVERY MAN', 'The delivery man holds his hand out expectantly. But you don''t have enough money! The delivery man has clearly had a bad day, and your lack of money is the straw that breaks the camel''s back. He pulls out some sort of weapon and murders you with it.', 1, 108),
-('ORDERING A BURRITO', 'The delivery man, who''s had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death. The burrito is there for the taking!', 1, 109),
+('USING THE PHONE', 'You pick up your old school landline phone. Maybe you could order a burrito from Burritos Etc! According to your recollection, their burritos cost $10. You''d better have enough money...', 1, 107),
+('FACING THE DELIVERY MAN', 'The delivery man holds his hand out expectantly. But you don''t have enough money! The delivery man has clearly had a bad day, and your lack of money is the straw that breaks the camel''s back. He pulls out a sock full of dimes and beats you to death with it. THIS IS WHAT YOU GET FOR NOT BEING ABLE TO AFFORD A BURRITO.', 1, 108),
+('ORDERING A BURRITO', 'The delivery man, who''s had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death. You get arrested and are given 4 years for manslaughter. Good news is they have Burrito Tuesdays in prison.', 1, 109),
 ('ORDERING A BURRITO', 'You are delivered the most supreme burrito, a LEVEL 5. CONGRATS!', 1, 110),
-('RIDING YOUR BIKE', 'You unlock your bike and take it outside. It''s beautiful!  But the chirping birds and bright sunshine only prove to worsen your pounding hangover headache.  You consider your burrito options...there''s a SUPERMARKEY and a TACO BELL a few miles away, a BURRITO TRUCK a mile away, or your BUDDY''S HOUSE a few blocks away. WHAT DO?', 1, 301),
+('RIDING YOUR BIKE', 'You unlock your bike and take it outside. It''s beautiful!  But the chirping birds and bright sunshine only prove to worsen your pounding hangover headache.  You consider your burrito options...there''s a SUPERMARKET and a TACO BELL a few miles away, a BURRITO TRUCK a mile away, or your BUDDY''S HOUSE a few blocks away. WHAT DO?', 1, 301),
 ('IN THE GARAGE', 'Your bike is securely locked to the boiler.  That''s probably bad for it, but you have no key.', 1, 302),
 ('AT THE BURRITO TRUCK', 'You make your way to the BURRITO TRUCK. Working at the counter is a sweet but frail old man who seems to be making an ULTIMATE BURRITO for himself. He sees he has a customer and quickly perks up. ''Hello, my friend! What can I get for you?''', 1, 401),
-('ASKING FOR BURRITO', '''One burrito right away, my friend!'' The man proceeds to make a delicious looking burrito with all the works. It looks almost as good as the burrito the man made for himself! ''Alright, my friend, that''ll be $5!''', 1, 402),
+('ASKING FOR BURRITO', '''One burrito right away, my friend!'' The man proceeds to make a delicious looking burrito with all the works. It looks almost as good as the burrito the man made for himself! ''Alright, my friend, that''ll be $10!''', 1, 402),
 ('STANDING ABOVE A DYING MAN', 'The old man quickly turns as red as a tomato. ''I TRUSTED YOU TO HAVE MONEY FOR THIS BURRITO! YOU HAVE BETRAYED ME! I AM SO MAD, I COULD....'' the old man is overwhelmed by his emotions and has a heart attack. He drops the burrito he made for you on the ground and it''s totally ruined.', 1, 403),
 ('FLEEING THE SCENE', 'You ignore the fact that the old man is dying and reach behind the counter to grab his ULTIMATE BURRITO. You eat the burrito as you flee the scene, so it doesn''t get too cold. Wow you should''ve tried eating burritos while running sooner, the burrito is somehow more delicious that way. The old man dies. ', 1, 404),
 ('CALLING AN AMBULANCE', 'You call an ambulance from the burrito truck''s phone. The ambulance arrives, but unfortunately the driver was at the same party as you last night and had a little too much to drink as well! As he approaches the burrito truck, his foot accidentally slams the gas instead of breaks. He plows into you and the burrito truck at a very high velocity. Everyone just died!', 1, 405),
@@ -180,6 +215,12 @@ ALTER TABLE `player`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Indexes for table `snooze`
+--
+ALTER TABLE `snooze`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Indexes for table `stages`
 --
 ALTER TABLE `stages`
@@ -213,7 +254,12 @@ ALTER TABLE `money`
 -- AUTO_INCREMENT for table `player`
 --
 ALTER TABLE `player`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+--
+-- AUTO_INCREMENT for table `snooze`
+--
+ALTER TABLE `snooze`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `stages`
 --
