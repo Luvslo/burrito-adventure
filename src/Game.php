@@ -13,12 +13,6 @@ class Game
         return $this->id;
     }
 
-    function death($reason)
-    //Move this to stage class?
-    {
-        echo ($reason + " GAME OVER");
-        // exit(0);
-    }
 
 }
 
