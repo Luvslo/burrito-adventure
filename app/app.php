@@ -67,7 +67,7 @@
             'money' => $money->getValue(),
             'message' => array(
                 'type' => 'info',
-                'text' => 'You hit the snooze for another 9 minutes.'
+                'text' => 'You hit the snooze for another 20 minutes.'
             )
         ));
     });
