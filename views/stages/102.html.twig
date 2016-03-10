@@ -1,3 +1,13 @@
+{% if has_sunscreen == 0 and has_keys == 0 %}
+    <p>Your KEYS, PHONE, and SUNSCREEN are sitting on the counter.   WHAT DO?</p>
+{% elseif has_sunscreen == 0 and has_keys == 1 %}
+    <p>Your PHONE, and SUNSCREEN are sitting on the counter.   WHAT DO?</p>
+{% elseif has_sunscreen == 1 and has_keys == 0 %}
+    <p>Your KEYS and PHONE are sitting on the counter.   WHAT DO?</p>
+{% elseif has_sunscreen == 1 and has_keys ==1 %}
+    <p>Your PHONE is sitting on the counter.   WHAT DO?</p>
+{% endif %}
+
     {% if has_sunscreen == 0 %}
     <form action="/get_sunscreen" method="post">
         <button type="submit" class="btn btn gamebtn">GET SUNSCREEN</button>

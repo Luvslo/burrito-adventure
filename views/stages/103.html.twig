@@ -1,9 +1,15 @@
 {% if has_frozen_burrito == 0 %}
+    <p>You see a horrific sight.  An Amy's frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer. It is now a lovely spectrum of green and black, and frozen completely solid. You could probably hurt someone with this thing.
+ </p>
+{% else %}
+    <p>You now hold in your hot little hands an ancient and decrepit burrito.  Might come in handy later.</p>
+{% endif %}
+{% if has_frozen_burrito == 0 %}
     <form action="/take_frozen_burrito" method="post">
         <button type="submit" class="btn gamebtn">TAKE FROZEN BURRITO</button>
     </form>
 
-    {% endif %}
+{% endif %}
     <form action="/stage/106" method="get">
         <button type="submit" class="btn gamebtn">EAT FROZEN BURRITO</button>
     </form>
