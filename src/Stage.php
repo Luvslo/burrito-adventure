@@ -53,7 +53,7 @@
             {
                 $returned_actions = $GLOBALS['DB']->query("SELECT * FROM actions WHERE stage_id = {$this->getId()};");
 
-                
+
 
                 $actions = [];
                 foreach ($returned_actions as $action) {
@@ -68,6 +68,12 @@
                 return $actions;
             }
 
+            function snooze()
+            {
+                $snooze_count = $_SESSION['snooze_count'];
+                $snooze_count += 1;
+                return $snooze_count;
+            }
 
             static function getAll()
             {

@@ -64,7 +64,7 @@
             )
         ));
     });
-//add find money to clean room
+
     $app->post("/clean_room", function() use ($app) {
         //remove ability to click clean room again
         $player = Player::getAll();
@@ -93,24 +93,25 @@
         $money = Money::getAll();
         $has_keys = 0;
         $has_frozen_burrito = 0;
+        // $snooze_count = $_SESSION['snooze_count'];
         $has_cactus = 0;
         $has_sunscreen = 0;
         $has_bumhelp = 0;
         foreach ($inventories as $item){
-            if ($item->getName() == 'keys')
+            if ($item->getName() == 'Keys')
             {
                 $has_keys = 1;
             }
-            elseif ($item->getName() == 'frozen burrito') {
+            elseif ($item->getName() == 'Frozen Burrito') {
                 $has_frozen_burrito = 1;
             }
-            elseif ($item->getName() == 'cactus') {
+            elseif ($item->getName() == 'Cactus') {
                 $has_cactus = 1;
             }
-            elseif ($item->getName() == 'sunscreen') {
+            elseif ($item->getName() == 'Sunscreen') {
                 $has_sunscreen = 1;
             }
-            elseif ($item->getName() == 'bumhelp') {
+            elseif ($item->getName() == 'Bum IOU') {
                 $has_bumhelp = 1;
             }
         }
@@ -119,6 +120,7 @@
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'has_keys' => $has_keys,
+            // 'snooze_count' => $snooze_count,
             'has_frozen_burrito' => $has_frozen_burrito,
             'has_cactus' => $has_cactus,
             'has_sunscreen' => $has_sunscreen,
@@ -130,7 +132,7 @@
             )
         ));
     });
-//102
+
     $app->post("/get_sunscreen", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
@@ -175,7 +177,6 @@
         ));
     });
 
-//103
     $app->post("/take_frozen_burrito", function() use ($app) {
         //GAME_ID IS CURRENTLY HARD CODED TO 1
         //MIGHT NEED TO BE CHANGED?
@@ -197,26 +198,7 @@
             )
         ));
     });
-//add death function
 
-//104
-    // $app->post("/ride_bike", function() use ($app) {
-    //
-    //     //GAME_ID IS CURRENTLY HARD CODED TO 1
-    //     //MIGHT NEED TO BE CHANGED?
-    //     $player = Player::getAll();
-    //     $stage = Stage::find(301);
-    //     return $app['twig']->render('stage.html.twig', array(
-    //         'player' => $player[0],
-    //         'description' => $stage->getDescription(),
-    //         'stage' => $stage,
-    //         'message' => array(
-    //             'type' => 'warning',
-    //             'text' => 'You ate the frozen burrito AND DIED!'
-    //         )
-    //     ));
-    // });
-//401
     $app->get("/ask_for_burrito", function() use ($app) {
         $player = Player::getAll();
         $stage = Stage::find(401);
@@ -295,8 +277,6 @@
     });
 
     $app->post("/loot_purse", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(502);
         $inventories = Inventory::isInInventory();
@@ -314,5 +294,6 @@
             )
         ));
     });
+
     return $app;
 ?>
