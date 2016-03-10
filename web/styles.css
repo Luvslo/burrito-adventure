@@ -70,3 +70,10 @@ input {
     color: green !important;
     border: 2px solid green !important;
 }
+
+input:focus {
+    background-color: black !important;
+    color: green !important;
+    border: 2px solid green !important;
+    outline: none !important;
+}
