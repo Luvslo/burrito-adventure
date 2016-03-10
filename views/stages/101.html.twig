@@ -6,12 +6,12 @@
         <button type="submit" class="btn btn-info">Clean Your Room</button>
     </form>
 {% endif %}
-{% if snooze > 2 %}
+{% if snooze > 3 %}
     <form action="/stage/111" method="get">
-        <button type="submit" class="btn btn-info">Snooze for 9 Minutes</button>
+        <button type="submit" class="btn btn-info">Snooze for 20 Minutes</button>
     </form>
-{% elseif snooze <= 2 %}
+{% elseif snooze <= 3 %}
     <form action="/snooze" method="post">
-        <button type="submit" class="btn btn-info">Snooze for 9 Minutes</button>
+        <button type="submit" class="btn btn-info">Snooze for 20 Minutes</button>
     </form>
 {% endif %}
