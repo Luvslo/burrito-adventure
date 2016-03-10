@@ -80,7 +80,7 @@
             'money' => $money->getValue(),
             'message' => array(
                 'type' => 'info',
-                'text' => 'You cleaned your room, and found $1! SWEET!'
+                'text' => 'You cleaned your room, and found $2! SWEET!'
             )
         ));
     });
