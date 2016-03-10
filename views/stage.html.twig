@@ -8,12 +8,15 @@
             {% include '/includes/message.html.twig' %}
 
             <h1>Hi, {{ player.getName }}!</h1>
-            <h3>You are {{ stage.getName }}</h3>
-            <p>
-                {{description}}
-            </p>
+            <div class="game_div">
+                <h3>You are {{ stage.getName }}</h3>
+                <p>
+                    {{description}}
+                </p>
 
-            {% include '/stages/' ~ stage.getId ~ '.html.twig' %}
+                {% include '/stages/' ~ stage.getId ~ '.html.twig' %}
+            </div>
+
         </div>
         <div class="col-md-4 inventory_column">
             {% include '/includes/inventory.html.twig' %}

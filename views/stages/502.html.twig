@@ -1,26 +1,26 @@
 {% if money < 5 %}
     <form action="/stage/503" method="get">
-        <button type="submit" class="btn btn-info">TAKE BURRITO FROM WANDA</button>
+        <button type="submit" class="btn gamebtn">TAKE BURRITO FROM WANDA</button>
     </form>
     <form action="/stage/102" method="get">
-        <button type="submit" class="btn btn-info">GO HOME. FORGET WANDA.</button>
+        <button type="submit" class="btn gamebtn">GO HOME. FORGET WANDA.</button>
     </form>
     <form action="/loot_purse" method="post">
-        <button type="submit" class="btn btn-info">LOOT WANDA'S PURSE</button>
+        <button type="submit" class="btn gamebtn">LOOT WANDA'S PURSE</button>
     </form>
 {% else %}
     <form action="/stage/503" method="get">
-        <button type="submit" class="btn btn-info">TAKE BURRITO FROM WANDA</button>
+        <button type="submit" class="btn gamebtn">TAKE BURRITO FROM WANDA</button>
     </form>
     <form action="/stage/102" method="get">
-        <button type="submit" class="btn btn-info">GO HOME. FORGET WANDA.</button>
+        <button type="submit" class="btn gamebtn">GO HOME. FORGET WANDA.</button>
     </form>
 
 {% endif %}
 
 {% if has_cactus == 0 %}
 <form action="/take_cactus" method="post">
-    <button type="submit" class="btn btn-info">TAKE WANDA'S CACTUS.</button>
+    <button type="submit" class="btn gamebtn">TAKE WANDA'S CACTUS.</button>
 </form>
 
 {% endif %}
