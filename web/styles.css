@@ -5,12 +5,21 @@ body h1, h2, h3, h4, h5 {
 
 body {
     font-family: 'Ubuntu Mono', monospace;
+    background-color: black;
+    color: green;
 }
 
 .inventory {
-    border: 2px solid black;
+    border: 2px solid green;
     border-radius: 5px;
     padding: 15px;
+    margin-top: 70px;
+    background-color: black;
+    color: green;
+}
+
+.inventory h2 {
+    margin-top: 0px;
 }
 
 .game_div {
@@ -18,6 +27,8 @@ body {
     color: green;
     padding: 15px;
     height: 600px;
+    border: 2px green solid;
+    border-radius: 5px;
     max-height: 800px;
 }
 
@@ -27,9 +38,16 @@ body {
     margin: 3px;
     font-family: 'VT323', monospace;
     font-size: 18px;
+    color: green;
 }
 
 .gamebtn:hover {
     color: black;
     background-color: green;
+}
+
+.alert-info {
+    background-color: green !important;
+    color: black !important;
+    border: none !important;
 }
