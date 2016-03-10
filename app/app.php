@@ -81,7 +81,7 @@
             'money' => $money->getValue(),
             'message' => array(
                 'type' => 'info',
-                'text' => 'You cleaned your room, and found $1! SWEET!'
+                'text' => 'You cleaned your room, and found $2! SWEET!'
             )
         ));
     });
@@ -98,20 +98,20 @@
         $has_sunscreen = 0;
         $has_bumhelp = 0;
         foreach ($inventories as $item){
-            if ($item->getName() == 'keys')
+            if ($item->getName() == 'Keys')
             {
                 $has_keys = 1;
             }
-            elseif ($item->getName() == 'frozen burrito') {
+            elseif ($item->getName() == 'Frozen Burrito') {
                 $has_frozen_burrito = 1;
             }
-            elseif ($item->getName() == 'cactus') {
+            elseif ($item->getName() == 'Cactus') {
                 $has_cactus = 1;
             }
-            elseif ($item->getName() == 'sunscreen') {
+            elseif ($item->getName() == 'Sunscreen') {
                 $has_sunscreen = 1;
             }
-            elseif ($item->getName() == 'bumhelp') {
+            elseif ($item->getName() == 'Bum IOU') {
                 $has_bumhelp = 1;
             }
         }

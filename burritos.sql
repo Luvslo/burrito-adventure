@@ -108,14 +108,14 @@ CREATE TABLE `stages` (
 --
 
 INSERT INTO `stages` (`name`, `description`, `game_id`, `id`) VALUES
-('IN YOUR BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die.  WHAT DO?', 1, 101),
+('IN YOUR BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die. You only have one dollar in your wallet though... WHAT DO?', 1, 101),
 ('IN THE KITCHEN', 'You walk into the kitchen. The sun is extremely bright. You shield your hungover eyes. Inside the kitchen, you have a FRIDGE. KEYS, PHONE, and SUNSCREEN are sitting on the counter. You can enter the GARAGE or LEAVE the house. WHAT DO?', 1, 102),
 ('LOOKING IN THE FRIDGE', 'You see a horrific sight.  An Amy''s frozen burrito that you keep thawing and forgetting about before tossing it back into the freezer.  It is now a lovely spectrum of green and black, and frozen completely solid.  You could probably hurt someone with this thing.', 1, 103),
 ('IN THE GARAGE', 'You walk into the garage, and see your BIKE. There''s a door for the KITCHEN and a door OUTSIDE. WHAT DO?', 1, 104),
 ('OUTSIDE', 'You walk outside, and you remember there''s a delicious burrito truck only about a mile away. You also remember that your buddy lives just 2 blocks away. He sometimes has burritos! WHAT DO?', 1, 105),
 ('EATING THE MONSTROUS BURRITO', 'Against your better judgement, you toss the burrito in your microwave and choke the putrid goo-mass down.  You immediately start vomiting and don''t stop.', 1, 106),
 ('USING THE PHONE', 'You pick up your old school landline phone. Maybe you could order a burrito!', 1, 107),
-('FACING THE DELIVERY MAN', 'The delivery man holds his hand out expectantly. But you don''t have enough money!', 1, 108),
+('FACING THE DELIVERY MAN', 'The delivery man holds his hand out expectantly. But you don''t have enough money! The delivery man has clearly had a bad day, and your lack of money is the straw that breaks the camel''s back. He pulls out some sort of weapon and murders you with it.', 1, 108),
 ('ORDERING A BURRITO', 'The delivery man, who''s had a terrible day, is angry that you are unable to pay him. He comes at you with a hidden switchblade. You think quickly and use your frozen burrito as a weapon, bludgeoning him to death. The burrito is there for the taking!', 1, 109),
 ('ORDERING A BURRITO', 'You are delivered the most supreme burrito, a LEVEL 5. CONGRATS!', 1, 110),
 ('RIDING YOUR BIKE', 'You unlock your bike and take it outside. It''s beautiful!  But the chirping birds and bright sunshine only prove to worsen your pounding hangover headache.  You consider your burrito options...there''s a SUPERMARKEY and a TACO BELL a few miles away, a BURRITO TRUCK a mile away, or your BUDDY''S HOUSE a few blocks away. WHAT DO?', 1, 301),
