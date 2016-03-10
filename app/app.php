@@ -36,12 +36,15 @@
         $stage = Stage::find(101);
         $inventories = Inventory::isInInventory();
         Money::reset();
+        Snooze::reset();
         $money = Money::getAll();
+        $snooze = Snooze::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'money' => $money->getValue(),
+            'snooze' => $snooze->getValue(),
             'message' => array(
             ),
             'inventories' => $inventories
