@@ -27,8 +27,9 @@
             $money = new Money();
             $money->addMoney(5);
 
-            $result = 6
+            $result = 6;
 
             $this->assertEquals(6, $money->getValue());
         }
     }
+ ?>

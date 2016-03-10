@@ -6,7 +6,6 @@
     */
 
     require_once __DIR__ . '/../src/Stage.php';
-    require_once __DIR__ . '/../src/Action.php';
 
     $server = 'mysql:host=localhost;dbname=burritos_test';
     $usercourse_name = 'root';
@@ -18,7 +17,6 @@
         protected function tearDown()
         {
             Stage::deleteAll();
-            Action::deleteAll();
         }
 
         function test_Save()
@@ -81,27 +79,5 @@
             $this->assertEquals($test_stage2, $result);
         }
 
-        function test_getActions()
-        {
-            $name = "Kitchen";
-            $description = "This is a kitchen and there's stuff in it";
-            $id = 1;
-            $game_id = 1;
-
-            $test_stage = new Stage($name, $description, $game_id, $id);
-            $test_stage->save();
-
-            $action_name = "CLEAN";
-            $action_description = "You clean your kitchen";
-            $stage_id = $test_stage->getId();
-            $test_action = new Action($action_name, $action_description, $stage_id);
-            $test_action->save();
-
-            //Act
-            $result = $test_stage->getActions();
-
-            //Assert
-            $this->assertEquals([$test_action], $result);
-        }
     }
  ?>

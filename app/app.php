@@ -5,6 +5,7 @@
     require_once __DIR__."/../src/Stage.php";
     require_once __DIR__."/../src/Game.php";
     require_once __DIR__."/../src/Money.php";
+    require_once __DIR__."/../src/Snooze.php";
 
     $app = new Silex\Application();
 
@@ -35,12 +36,15 @@
         $stage = Stage::find(101);
         $inventories = Inventory::isInInventory();
         Money::reset();
+        Snooze::reset();
         $money = Money::getAll();
+        $snooze = Snooze::getAll();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player,
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'money' => $money->getValue(),
+            'snooze' => $snooze->getValue(),
             'message' => array(
             ),
             'inventories' => $inventories
@@ -52,10 +56,13 @@
         $stage = Stage::find(101);
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $snooze = Snooze::getAll();
+        $snooze->addSnooze(1);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'snooze' => $snooze->getValue(),
             'inventories' => $inventories,
             'money' => $money->getValue(),
             'message' => array(
@@ -66,16 +73,18 @@
     });
 
     $app->post("/clean_room", function() use ($app) {
-        //remove ability to click clean room again
         $player = Player::getAll();
         $stage = Stage::find(101);
+        $inventories = Inventory::isInInventory();
         $money = Money::getAll();
         $money->addMoney(2);
-        $inventories = Inventory::isInInventory();
+        $snooze = Snooze::getAll();
+        $snooze->addSnooze(1);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'snooze' => $snooze->getValue(),
             'inventories' => $inventories,
             'money' => $money->getValue(),
             'message' => array(
@@ -91,9 +100,9 @@
         $inventory = Inventory::getAll();
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $snooze = Snooze::getAll();
         $has_keys = 0;
         $has_frozen_burrito = 0;
-        // $snooze_count = $_SESSION['snooze_count'];
         $has_cactus = 0;
         $has_sunscreen = 0;
         $has_bumhelp = 0;
@@ -120,12 +129,12 @@
             'description' => $stage->getDescription(),
             'stage' => $stage,
             'has_keys' => $has_keys,
-            // 'snooze_count' => $snooze_count,
             'has_frozen_burrito' => $has_frozen_burrito,
             'has_cactus' => $has_cactus,
             'has_sunscreen' => $has_sunscreen,
             'has_bumhelp' => $has_bumhelp,
             'money' => $money->getValue(),
+            'snooze' => $snooze->getValue(),
             'inventories' => $inventories,
             'inventory' => $inventory,
             'message' => array(
@@ -134,8 +143,6 @@
     });
 
     $app->post("/get_sunscreen", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(102);
         $sunscreen = Inventory::find(4);
@@ -268,8 +275,6 @@
     });
 
     $app->post("/take_cactus", function() use ($app) {
-        //GAME_ID IS CURRENTLY HARD CODED TO 1
-        //MIGHT NEED TO BE CHANGED?
         $player = Player::getAll();
         $stage = Stage::find(502);
         $cactus = Inventory::find(3);

@@ -104,7 +104,7 @@
                 }
                 return $found_inventory;
             }
-            
+
             static function deleteAll()
             {
                 $GLOBALS['DB']->exec("DELETE FROM inventories;");
@@ -116,17 +116,17 @@
             }
 
             static function isInInventory()
-           {
-               $found_items = [];
-               $items = Inventory::getAll();
-               foreach($items as $item) {
-                   $item_status = $item->getInInventory();
-                   if ($item_status == 1) {
-                     $found_item = $item;
-                     array_push($found_items, $item);
-                   }
-               }
-               return $found_items;
+            {
+                $found_items = [];
+                $items = Inventory::getAll();
+                foreach($items as $item) {
+                    $item_status = $item->getInInventory();
+                    if ($item_status == 1) {
+                        $found_item = $item;
+                        array_push($found_items, $item);
+                    }
+                }
+                return $found_items;
            }
 
            static function reset()
