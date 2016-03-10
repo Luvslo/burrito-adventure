@@ -6,7 +6,6 @@
     */
 
     require_once __DIR__ . '/../src/Stage.php';
-    require_once __DIR__ . '/../src/Action.php';
 
     $server = 'mysql:host=localhost;dbname=burritos_test';
     $usercourse_name = 'root';
@@ -18,7 +17,6 @@
         protected function tearDown()
         {
             Stage::deleteAll();
-            Action::deleteAll();
         }
 
         function test_Save()
