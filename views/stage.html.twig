@@ -4,8 +4,9 @@
         {% include '/includes/head.html.twig' %}
     </head>
     <body>
+        {% include '/includes/message.html.twig' %}
         <div class="col-md-8 game_column">
-            {% include '/includes/message.html.twig' %}
+
 
             <h1>Hi, {{ player.getName }}!</h1>
             <div class="game_div">
@@ -22,6 +23,6 @@
             {% include '/includes/inventory.html.twig' %}
         </div>
 
-
+        {% include '/includes/footer.html.twig' %}
     </body>
 </html>
