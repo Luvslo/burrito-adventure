@@ -1,11 +1,17 @@
+{% if money > 9 %}
 
     <form action="/stage/408" method="get">
-        <button type="submit" class="btn btn-info">PAY FOR BURRITO (win)</button>
+        <button type="submit" class="btn btn-info">PAY FOR BURRITO</button>
     </form>
+
+{% else %}
     <!-- PLACEHOLDER -->
     <form action="/stage/403" method="get">
         <button type="submit" class="btn btn-info">PAY FOR BURRITO</button>
     </form>
+
+    {% endif %}
+
     <!-- END PLACEHOLDER -->
     <form action="/stage/407" method="get">
         <button type="submit" class="btn btn-info">TRY TO TAKE HIS BURRITO</button>

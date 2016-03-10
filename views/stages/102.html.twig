@@ -1,10 +1,17 @@
-
+    {% if has_sunscreen == 0 %}
     <form action="/get_sunscreen" method="post">
         <button type="submit" class="btn btn-info">GET SUNSCREEN</button>
     </form>
+
+    {% endif %}
+
+    {% if has_keys == 0 %}
     <form action="/get_keys" method="post">
         <button type="submit" class="btn btn-info">GET KEYS</button>
     </form>
+
+    {% endif %}
+
     <form action="/stage/107" method="get">
         <button type="submit" class="btn btn-info">USE PHONE</button>
     </form>

@@ -142,10 +142,16 @@
         $sunscreen->putInInventory('sunscreen');
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $has_sunscreen = 1;
+        $keys = Inventory::find(1);
+        $has_keys = $keys->getInInventory();
+        var_dump($has_keys);
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'has_sunscreen' => 1,
+            'has_keys' => $has_keys,
             'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
@@ -163,11 +169,16 @@
         $keys = Inventory::find(1);
         $keys->putInInventory('keys');
         $money = Money::getAll();
+        $has_keys = 1;
+        $sunscreen = Inventory::find(4);
+        $has_sunscreen = $sunscreen->getInInventory();
         $inventories = Inventory::isInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'has_keys' => 1,
+            'has_sunscreen' => $has_sunscreen,
             'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
@@ -186,10 +197,12 @@
         $frozen_burrito->putInInventory('frozen burrito');
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $has_frozen_burrito = 1;
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'has_frozen_burrito' => 1,
             'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
@@ -263,10 +276,12 @@
         $cactus->putInInventory('cactus');
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
+        $has_cactus = 1;
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'has_cactus' => 1,
             'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(

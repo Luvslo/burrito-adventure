@@ -1,7 +1,9 @@
-
+{% if has_frozen_burrito == 0 %}
     <form action="/take_frozen_burrito" method="post">
         <button type="submit" class="btn btn-info">TAKE FROZEN BURRITO</button>
     </form>
+
+    {% endif %}
     <form action="/stage/106" method="get">
         <button type="submit" class="btn btn-info">EAT FROZEN BURRITO</button>
     </form>
