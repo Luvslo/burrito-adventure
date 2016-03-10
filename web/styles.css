@@ -1,8 +1,35 @@
-game_column {
+body h1, h2, h3, h4, h5 {
+    font-family: 'VT323', monospace;
+
+}
+
+body {
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+.inventory {
+    border: 2px solid black;
+    border-radius: 5px;
     padding: 15px;
 }
 
-inventory {
-    border: 2px solid black;
-    border-radius: 5px;
+.game_div {
+    background-color: black;
+    color: green;
+    padding: 15px;
+    height: 600px;
+    max-height: 800px;
+}
+
+.gamebtn {
+    background-color: black;
+    border: green 2px solid;
+    margin: 3px;
+    font-family: 'VT323', monospace;
+    font-size: 18px;
+}
+
+.gamebtn:hover {
+    color: black;
+    background-color: green;
 }
