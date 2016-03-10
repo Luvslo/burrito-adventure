@@ -301,10 +301,13 @@
         $inventories = Inventory::isInInventory();
         $money = Money::getAll();
         $money->addMoney(8);
+        $cactus = Inventory::find(3);
+        $has_cactus = $cactus->getInInventory();
         return $app['twig']->render('stage.html.twig', array(
             'player' => $player[0],
             'description' => $stage->getDescription(),
             'stage' => $stage,
+            'has_cactus' => $has_cactus,
             'money' => $money->getValue(),
             'inventories' => $inventories,
             'message' => array(
