@@ -5,9 +5,15 @@
     <form action="/stage/407" method="get">
         <button type="submit" class="btn gamebtn">TRY TO TAKE HIS BURRITO</button>
     </form>
+{% if has_keys == 1 %}
     <form action="/stage/501" method="get">
         <button type="submit" class="btn gamebtn">BIKE TO YOUR BUDDY'S HOUSE</button>
     </form>
+{% else %}
+    <form action="/stage/501" method="get">
+        <button type="submit" class="btn gamebtn">WALK TO YOUR BUDDY'S HOUSE</button>
+    </form>
+{% endif %}
     <form action="/stage/102" method="get">
         <button type="submit" class="btn gamebtn">GO HOME</button>
     </form>

@@ -1,17 +1,17 @@
 <form action="/stage/102" method="get">
-    <button type="submit" class="btn gamebtn">Go To Kitchen</button>
+    <button type="submit" class="btn gamebtn">GO TO KITCHEN</button>
 </form>
 {% if money == 1 or money == 9 or money == 0 or money == 8 %}
     <form action="/clean_room" method="post">
-        <button type="submit" class="btn gamebtn">Clean Your Room</button>
+        <button type="submit" class="btn gamebtn">CLEAN ROOM</button>
     </form>
 {% endif %}
 {% if snooze > 3 %}
     <form action="/stage/111" method="get">
-        <button type="submit" class="btn gamebtn">Snooze for 20 Minutes</button>
+        <button type="submit" class="btn gamebtn">SNOOZE 20 MINUTES</button>
     </form>
 {% elseif snooze <= 3 %}
     <form action="/snooze" method="post">
-        <button type="submit" class="btn gamebtn">Snooze for 20 Minutes</button>
+        <button type="submit" class="btn gamebtn">SNOOZE 20 MINUTES</button>
     </form>
 {% endif %}
