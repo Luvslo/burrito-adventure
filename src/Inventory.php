@@ -6,13 +6,15 @@
             private $description;
             private $game_id;
             private $in_inventory;
+            private $picture;
             private $id;
 
-            function __construct($name, $description, $game_id, $in_inventory = 0, $id = null) {
+            function __construct($name, $description, $game_id, $in_inventory = 0, $picture, $id = null) {
                 $this->name = $name;
                 $this->description = $description;
                 $this->game_id = $game_id;
                 $this->in_inventory = $in_inventory;
+                $this->picture = $picture;
                 $this->id = $id;
             }
 
@@ -61,6 +63,16 @@
                 $this->in_inventory = $new_in_inventory;
             }
 
+            function setPicture($picture)
+            {
+                $this->picture = $picture;
+            }
+
+            function getPicture()
+            {
+                return $this->picture;
+            }
+
             function adjustPunctuation($input)
             {
                 $search = "/(\')/";
@@ -71,7 +83,7 @@
 
             function save()
             {
-                $GLOBALS['DB']->exec("INSERT INTO inventories (name, description, game_id, in_inventory) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()});");
+                $GLOBALS['DB']->exec("INSERT INTO inventories (name, description, game_id, in_inventory) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()}, '{$this->getPicture()}');");
                 $this->id = $GLOBALS['DB']->lastInsertId();
             }
 
@@ -85,8 +97,9 @@
                     $description = $inventory['description'];
                     $game_id = $inventory['game_id'];
                     $in_inventory = $inventory['in_inventory'];
+                    $picture = $inventory['picture'];
                     $id = $inventory['id'];
-                    $new_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+                    $new_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
                     array_push($inventories, $new_inventory);
                 }
                 return $inventories;
