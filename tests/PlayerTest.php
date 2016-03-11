@@ -22,7 +22,7 @@
         function test_getInfo()
         {
             // Arrange
-            $name = "Joe";
+            $name = "JOE";
             $game_id = 1;
             $id = 1;
             $test_player = new Player($name, $game_id, $id);
@@ -41,7 +41,7 @@
 
         function test_save()
         {
-            $name = "Joe";
+            $name = "JOE";
             $game_id = 1;
             $id = 1;
             $test_player = new Player($name, $game_id, $id);
@@ -56,13 +56,13 @@
 
         function test_getAll()
         {
-            $name = "Joe";
+            $name = "JOE";
             $game_id = 1;
             $id = 1;
             $test_player = new Player($name, $game_id, $id);
             $test_player->save();
 
-            $name2 = "Mary";
+            $name2 = "MARY";
             $id2 = 2;
             $test_player2 = new Player($name2, $game_id, $id2);
             $test_player2->save();
