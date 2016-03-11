@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8080
--- Generation Time: Mar 10, 2016 at 04:39 PM
+-- Generation Time: Mar 11, 2016 at 08:53 AM
 -- Server version: 5.7.10
 -- PHP Version: 5.6.16
 
@@ -52,11 +52,11 @@ CREATE TABLE `inventories` (
 --
 
 INSERT INTO `inventories` (`name`, `description`, `game_id`, `in_inventory`, `picture`, `id`) VALUES
-('Keys', 'These are your keys. One of the keys is to your bike lock', 1, 1, '/img/keys.png', 1),
-('Frozen Burrito', 'This frozen burrito looks super questionable. It has probably been frozen for a long time, and is as hard as a rock. Is that mold I see?', 1, 1, '/img/frozen_burrito.png', 2),
-('Cactus', 'It is a cactus. Its needles look dangerous. ', 1, 1, '/img/cactus.png', 3),
-('Sunscreen', 'It can protect you from the sun. It is also very slippery.', 1, 1, '/img/sunscreen.png', 4),
-('Bum IOU', 'You helped a bum. Bum magic!', 1, 1, '/img/bum_magic.png', 5);
+('Keys', 'These are your keys. One of the keys is to your bike lock', 1, 0, '/img/keys.png', 1),
+('Frozen Burrito', 'This frozen burrito looks super questionable. It has probably been frozen for a long time, and is as hard as a rock. Is that mold I see?', 1, 0, '/img/frozen_burrito.png', 2),
+('Cactus', 'It is a cactus. Its needles look dangerous. ', 1, 0, '/img/cactus.png', 3),
+('Sunscreen', 'It can protect you from the sun. It is also very slippery.', 1, 0, '/img/sunscreen.png', 4),
+('Bum IOU', 'You helped a bum. Bum magic!', 1, 0, '/img/bum_magic.png', 5);
 
 -- --------------------------------------------------------
 
@@ -74,7 +74,7 @@ CREATE TABLE `money` (
 --
 
 INSERT INTO `money` (`value`, `id`) VALUES
-(-2, 1);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE `player` (
 --
 
 INSERT INTO `player` (`name`, `game_id`, `id`) VALUES
-('ojoj', 1, 131);
+('LEMMY', 1, 139);
 
 -- --------------------------------------------------------
 
@@ -132,9 +132,9 @@ CREATE TABLE `stages` (
 
 INSERT INTO `stages` (`name`, `description`, `game_id`, `id`) VALUES
 ('IN YOUR BEDROOM', 'You wake up.  You''re hung over, famished, and your room is filthy.  You get the sense that if you do not eat a burrito in the next hour, you WILL die. You only have one dollar in your wallet though, surely not enough to purchase one whole burrito...  WHAT DO?', 1, 101),
-('IN THE KITCHEN', 'You walk into the kitchen. The sun is extremely bright. You shield your hungover eyes. You can enter the GARAGE or LEAVE the house.', 1, 102),
+('IN THE KITCHEN', 'You walk into the kitchen. The sun is extremely bright. You shield your hungover eyes. Your old school landline PHONE hangs on the wall.  You can enter the GARAGE or LEAVE the house.', 1, 102),
 ('LOOKING IN THE FRIDGE', '', 1, 103),
-('IN THE GARAGE', 'You walk into the garage, and see your BIKE. There''s a door for the KITCHEN and a door OUTSIDE. WHAT DO?', 1, 104),
+('IN THE GARAGE', 'You walk into the garage, and see your BIKE. There''s a door for the KITCHEN. WHAT DO?', 1, 104),
 ('OUTSIDE', 'You walk outside, and you remember there''s a delicious BURRITO TRUCK only about a mile away. You also remember that your BUDDY lives just 2 blocks away, and sometimes has burritos! There''s also a SUPERMARKET and TACO BELL downtown, but you don''t have enough energy to walk that far. WHAT DO?', 1, 105),
 ('EATING THE MONSTROUS BURRITO', 'Against your better judgement, you toss the burrito in your microwave and choke the putrid goo-mass down.  You immediately start vomiting and don''t stop.', 1, 106),
 ('USING THE PHONE', 'You pick up your old school landline phone. Maybe you could order a burrito from Burritos Etc! According to your recollection, their burritos cost $10. You''d better have enough money...', 1, 107),
@@ -232,7 +232,7 @@ ALTER TABLE `money`
 -- AUTO_INCREMENT for table `player`
 --
 ALTER TABLE `player`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=132;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 --
 -- AUTO_INCREMENT for table `snooze`
 --
