@@ -83,7 +83,7 @@
 
             function save()
             {
-                $GLOBALS['DB']->exec("INSERT INTO inventories (name, description, game_id, in_inventory) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()}, '{$this->getPicture()}');");
+                $GLOBALS['DB']->exec("INSERT INTO inventories (name, description, game_id, in_inventory, picture) VALUES ('{$this->adjustPunctuation($this->getName())}', '{$this->adjustPunctuation($this->getDescription())}', {$this->getGameId()}, {$this->getInInventory()}, '{$this->getPicture()}');");
                 $this->id = $GLOBALS['DB']->lastInsertId();
             }
 
