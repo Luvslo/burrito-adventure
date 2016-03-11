@@ -2,6 +2,7 @@
     <h2>INVENTORY</h2>
 
     {% for inventory in inventories %}
+        <img class="inventory_icon" src="{{ inventory.getPicture }}" alt="{{ inventory.getName }}" />
         <h3>{{ inventory.getName }}</h3>
         <p>{{ inventory.getDescription }}</p>
     {% endfor %}

@@ -27,8 +27,9 @@
             $id = null;
             $game_id = 1;
             $in_inventory = 0;
+            $picture = "picture.png";
 
-            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
             // Act
             $result1 = $name;
             $result2 = $in_inventory;
@@ -50,13 +51,31 @@
             $id = null;
             $game_id = 1;
             $in_inventory = 0;
+            $picture = "picture.png";
 
-            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
             $test_inventory->save();
 
             $result = Inventory::getAll();
 
             $this->assertEquals($test_inventory, $result[0]);
+        }
+
+        function test_getPicture()
+        {
+            $name = "Frozen Burrito";
+            $description = "This frozen burrito looks super questionable. It's probably been frozen for a long time, and is as hard as a rock. Is that mold I see?";
+            $id = null;
+            $game_id = 1;
+            $in_inventory = 0;
+            $picture = "picture.png";
+
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
+            $test_inventory->save();
+
+            $result = $test_inventory->getPicture();
+
+            $this->assertEquals("picture.png", $result);
         }
 
         function test_getAll()
@@ -66,16 +85,18 @@
             $id = null;
             $game_id = 1;
             $in_inventory = 0;
+            $picture = "picture.png";
 
-            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
             $test_inventory->save();
 
             $name2 = "Cash money";
             $description2 = "This is money. It can be used in exchange for goods and services.";
             $game_id2 = 2;
             $in_inventory2 = 0;
+            $picture2 = "picture.png";
 
-            $test_inventory2 = new Inventory($name2, $description2, $game_id2, $in_inventory2, $id);
+            $test_inventory2 = new Inventory($name2, $description2, $game_id2, $in_inventory2, $picture2, $id);
             $test_inventory2->save();
 
             $result = Inventory::getAll();
@@ -90,16 +111,18 @@
             $id = null;
             $game_id = 1;
             $in_inventory = 1;
+            $picture = "picture.png";
 
-            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
             $test_inventory->save();
 
             $name2 = "Cash money";
             $description2 = "This is money. It can be used in exchange for goods and services.";
             $game_id2 = 2;
             $in_inventory2 = 1;
+            $picture2 = "picture.png";
 
-            $test_inventory2 = new Inventory($name2, $description2, $game_id2, $in_inventory2, $id);
+            $test_inventory2 = new Inventory($name2, $description2, $game_id2, $in_inventory2, $picture, $id);
             $test_inventory2->save();
 
             Inventory::reset();
@@ -117,8 +140,9 @@
             $id = null;
             $game_id = 1;
             $in_inventory = 0;
+            $picture = "picture.png";
 
-            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
             $test_inventory->save();
 
             $test_inventory->putInInventory("Frozen Burrito");
@@ -135,19 +159,21 @@
             $id = null;
             $game_id = 1;
             $in_inventory = 1;
-            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $id);
+            $picture = "picture.png";
+            $test_inventory = new Inventory($name, $description, $game_id, $in_inventory, $picture, $id);
             $test_inventory->save();
 
             $name2 = "Cash money";
             $description2 = "This is money. It can be used in exchange for goods and services.";
             $in_inventory2 = 1;
-            $test_inventory2 = new Inventory($name2, $description2, $game_id, $in_inventory2, $id);
+            $picture2 = "picture.png";
+            $test_inventory2 = new Inventory($name2, $description2, $game_id, $in_inventory2, $picture, $id);
             $test_inventory2->save();
 
             $name3 = "Keys";
             $description3 = "keys";
             $in_inventory3 = 0;
-            $test_inventory3 = new Inventory($name3, $description3, $game_id, $in_inventory3, $id);
+            $test_inventory3 = new Inventory($name3, $description3, $game_id, $in_inventory3, $picture, $id);
             $test_inventory3->save();
 
             $current_inventory = Inventory::isInInventory();
