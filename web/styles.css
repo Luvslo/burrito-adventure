@@ -83,3 +83,8 @@ input:focus {
     float: left;
     margin-right: 10px;
 }
+
+::selection {
+    background-color: green;
+    color: black;
+}
