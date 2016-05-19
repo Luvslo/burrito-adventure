@@ -20,7 +20,7 @@ In terminal run the following commands to setup the database:
 
 1. _Fork and clone this repository from_ [gitHub](https://github.com/marywarrington/burrito-adventure.git).
 2. Navigate to the root directory of the project in which ever CLI shell you are using and run the command: __composer install__.
-3. Create a local server in the /web directory within the project folder using the command: __php -S localhost:8000__ (assuming you are using a mac).
+3. Create a local server __in the /web directory__ within the project folder using the command: __php -S localhost:8000__ (assuming you are using a mac).
 4. Open the directory http://localhost:8000 in any standard web browser.
 5. Open http://localhost:8080/phpmyadmin and import ../burritos.sql.zip.
 
