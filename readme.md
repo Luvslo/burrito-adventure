@@ -6,7 +6,7 @@
 
 ## Description
 
-![alt tag]('Screenshot.png')
+<img src="https://cloud.githubusercontent.com/assets/13214521/15433568/bfc2feb6-1e67-11e6-8eeb-f658cb92b72a.png" width="90%"></img>
 
 _This web app is a text-based game! The user enters their name, then begins the adventure by waking up in bed, starving for a burrito. They can then navigate through the game, collected necessary items and passing obstacles on their way to getting a burrito (winning) or not (losing)._
 
