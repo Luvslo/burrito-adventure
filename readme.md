@@ -6,6 +6,8 @@
 
 ## Description
 
+![alt tag]('Screenshot.png')
+
 _This web app is a text-based game! The user enters their name, then begins the adventure by waking up in bed, starving for a burrito. They can then navigate through the game, collected necessary items and passing obstacles on their way to getting a burrito (winning) or not (losing)._
 
 ## Setup/Installation Requirements
